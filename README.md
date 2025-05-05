@@ -1,6 +1,6 @@
-# Sony Custom Layers (SCL)
+# EdgeMdt Custom Layers (EdgeMdt CL)
 
-Sony Custom Layers (SCL) is an open-source project implementing detection post process NN layers not supported by the TensorFlow Keras API or Torch's torch.nn for the easy integration of those layers into pretrained models.
+EdgeMdt Custom Layers (EdgeMdt CL) is an open-source project implementing detection post process NN layers not supported by the TensorFlow Keras API or Torch's torch.nn for the easy integration of those layers into pretrained models.
 
 ## Table of Contents
 
@@ -21,16 +21,16 @@ This section provides an installation and a quick starting guide.
 
 To install the latest stable release of SCL, run the following command:
 ```
-pip install sony-custom-layers
+pip install edge-mdt-cl
 ```
 By default, no framework dependencies are installed.
 To install SCL including the latest tested dependencies (up to patch version) for TensorFlow:
 ```
-pip install sony-custom-layers[tf]
+pip install edge-mdt-cl[tf]
 ```
 To install SCL including the latest tested dependencies (up to patch version) for PyTorch/ONNX/OnnxRuntime:
 ```
-pip install sony-custom-layers[torch]
+pip install edge-mdt-cl[torch]
 ```
 ### Supported Versions
 
@@ -52,21 +52,21 @@ pip install sony-custom-layers[torch]
 | torch 2.0-2.4<br/>torchvision 0.15-0.19<br/>onnxruntime 1.15-1.19<br/>onnxruntime_extensions 0.8-0.12<br/>onnx 1.14-1.16 | 3.9-3.12                  | .onnx (via torch.onnx.export)  |
 
 ## API
-For sony-custom-layers API see https://sony.github.io/custom_layers
+For edge-mdt-cl API see https://sonysemiconductorsolutions.github.io/aitrios-edge-mdt-cl
 
 ### TensorFlow API
 For TensorFlow layers see
-[KerasAPI](https://sony.github.io/custom_layers/sony_custom_layers/keras.html)
+[KerasAPI](https://sonysemiconductorsolutions.github.io/aitrios-edge-mdt-cl/edgemdt_cl/keras.html)
 
-To load a model with custom layers in TensorFlow, see [custom_layers_scope](https://sony.github.io/custom_layers/sony_custom_layers/keras.html#custom_layers_scope)
+To load a model with custom layers in TensorFlow, see [custom_layers_scope](https://sonysemiconductorsolutions.github.io/aitrios-edge-mdt-cl/edgemdt_cl/keras.html#custom_layers_scope)
 
 ### PyTorch API
 For PyTorch layers see
-[PyTorchAPI](https://sony.github.io/custom_layers/sony_custom_layers/pytorch.html)
+[PyTorchAPI](https://sonysemiconductorsolutions.github.io/aitrios-edge-mdt-cl/edgemdt_cl/pytorch.html)
 
 No special handling is required for torch.onnx.export and onnx.load.
 
-For OnnxRuntime support see [load_custom_ops](https://sony.github.io/custom_layers/sony_custom_layers/pytorch.html#load_custom_ops) 
+For OnnxRuntime support see [load_custom_ops](https://sonysemiconductorsolutions.github.io/aitrios-edge-mdt-cl/edgemdt_cl/pytorch.html#load_custom_ops) 
 
 ## License
 [Apache License 2.0](LICENSE.md).
