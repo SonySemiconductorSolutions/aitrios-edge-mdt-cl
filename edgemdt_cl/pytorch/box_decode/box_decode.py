@@ -19,8 +19,8 @@ import warnings
 import torch
 from torch import nn
 
-from sony_custom_layers.common.box_util import corners_to_centroids, centroids_to_corners
-from sony_custom_layers.pytorch.custom_lib import register_op
+from edgemdt_cl.common.box_util import corners_to_centroids, centroids_to_corners
+from edgemdt_cl.pytorch.custom_lib import register_op
 
 BOX_DECODE_TORCH_OP = 'faster_rcnn_box_decode'
 
@@ -48,7 +48,7 @@ class FasterRCNNBoxDecode(nn.Module):
 
     Example:
         ```
-        from sony_custom_layers.pytorch import FasterRCNNBoxDecode
+        from edgemdt_cl.pytorch import FasterRCNNBoxDecode
 
         box_decode = FasterRCNNBoxDecode(anchors,
                                          scale_factors=(10, 10, 5, 5),
@@ -75,7 +75,7 @@ class FasterRCNNBoxDecode(nn.Module):
         self.register_buffer('clip_window', torch.tensor(clip_window, dtype=torch.float32, device=anchors.device))
 
     def forward(self, rel_codes: torch.Tensor) -> torch.Tensor:
-        return torch.ops.sony.faster_rcnn_box_decode(rel_codes, self.anchors, self.scale_factors, self.clip_window)
+        return torch.ops.edgemdt.faster_rcnn_box_decode(rel_codes, self.anchors, self.scale_factors, self.clip_window)
 
 
 ######################

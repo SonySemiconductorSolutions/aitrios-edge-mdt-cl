@@ -20,7 +20,7 @@ import pytest
 import torch
 from torch import Tensor
 
-from sony_custom_layers.pytorch.nms import nms_common
+from edgemdt_cl.pytorch.nms import nms_common
 
 
 def generate_random_inputs(batch: Optional[int], n_boxes, n_classes, seed=None):
@@ -84,7 +84,7 @@ class TestNMSCommon:
         score_threshold = 0.11
         iou_threshold = 0.61
         if mock_tv_op:
-            nms_mock = mocker.patch('sony_custom_layers.pytorch.nms.nms_common._nms_with_class_offsets',
+            nms_mock = mocker.patch('edgemdt_cl.pytorch.nms.nms_common._nms_with_class_offsets',
                                     Mock(return_value=Tensor([4, 5, 1, 0, 2, 3]).to(torch.int64)))
         ret, ret_valid_dets = nms_common._image_multiclass_nms(boxes,
                                                                scores,
@@ -159,7 +159,7 @@ class TestNMSCommon:
         ret_valid_dets = Tensor([[5], [4], [3]])
         # each time the function is called, next value in the list returned
         images_ret = [(img_nms_ret[i], ret_valid_dets[i]) for i in range(3)]
-        mock = mocker.patch('sony_custom_layers.pytorch.nms.nms_common._image_multiclass_nms',
+        mock = mocker.patch('edgemdt_cl.pytorch.nms.nms_common._image_multiclass_nms',
                             Mock(side_effect=lambda *args, **kwargs: images_ret.pop(0)))
 
         res, n_valid = nms_common._batch_multiclass_nms(input_boxes,

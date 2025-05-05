@@ -20,13 +20,13 @@ import numpy as np
 import torch
 import onnxruntime as ort
 
-from sony_custom_layers.pytorch import (multiclass_nms, multiclass_nms_with_indices, NMSResults, NMSWithIndicesResults,
-                                        MulticlassNMS, MulticlassNMSWithIndices)
-from sony_custom_layers.pytorch import load_custom_ops
-from sony_custom_layers.pytorch.nms.nms_common import LABELS, INDICES, SCORES
-from sony_custom_layers.pytorch.tests.test_nms_common import generate_random_inputs
-from sony_custom_layers.pytorch.tests.util import load_and_validate_onnx_model, check_tensor
-from sony_custom_layers.util.test_util import exec_in_clean_process
+from edgemdt_cl.pytorch import (multiclass_nms, multiclass_nms_with_indices, NMSResults, NMSWithIndicesResults,
+                                MulticlassNMS, MulticlassNMSWithIndices)
+from edgemdt_cl.pytorch import load_custom_ops
+from edgemdt_cl.pytorch.nms.nms_common import LABELS, INDICES, SCORES
+from edgemdt_cl.pytorch.tests.test_nms_common import generate_random_inputs
+from edgemdt_cl.pytorch.tests.util import load_and_validate_onnx_model, check_tensor
+from edgemdt_cl.util.test_util import exec_in_clean_process
 
 
 class TestMultiClassNMS:
@@ -39,10 +39,10 @@ class TestMultiClassNMS:
         n_valid = torch.randint(n_dets + 1, size=(3, 1), dtype=torch.float32)
         return Mock(return_value=(ret, n_valid))
 
-    @pytest.mark.parametrize('op, patch_pkg', [(torch.ops.sony.multiclass_nms, 'nms'),
-                                               (torch.ops.sony.multiclass_nms_with_indices, 'nms_with_indices')])
+    @pytest.mark.parametrize('op, patch_pkg', [(torch.ops.edgemdt.multiclass_nms, 'nms'),
+                                               (torch.ops.edgemdt.multiclass_nms_with_indices, 'nms_with_indices')])
     def test_torch_op(self, mocker, op, patch_pkg):
-        mock = mocker.patch(f'sony_custom_layers.pytorch.nms.{patch_pkg}._batch_multiclass_nms',
+        mock = mocker.patch(f'edgemdt_cl.pytorch.nms.{patch_pkg}._batch_multiclass_nms',
                             self._batch_multiclass_nms_mock(batch=3, n_dets=5))
         boxes, scores = generate_random_inputs(batch=3, n_boxes=10, n_classes=5)
         ret = op(boxes, scores, score_threshold=0.1, iou_threshold=0.6, max_detections=5)
@@ -55,13 +55,13 @@ class TestMultiClassNMS:
         assert ret[1].dtype == torch.float32
         assert torch.equal(ret[2], mock.return_value[0][:, :, LABELS])
         assert ret[2].dtype == torch.int64
-        if op == torch.ops.sony.multiclass_nms_with_indices:
+        if op == torch.ops.edgemdt.multiclass_nms_with_indices:
             assert torch.equal(ret[3], mock.return_value[0][:, :, INDICES])
             assert ret[3].dtype == torch.int64
             assert torch.equal(ret[4], mock.return_value[1])
             assert ret[4].dtype == torch.int64
             assert len(ret) == 5
-        elif op == torch.ops.sony.multiclass_nms:
+        elif op == torch.ops.edgemdt.multiclass_nms:
             assert torch.equal(ret[3], mock.return_value[1])
             assert ret[3].dtype == torch.int64
             assert len(ret) == 4
@@ -69,11 +69,11 @@ class TestMultiClassNMS:
             raise ValueError(op)
 
     @pytest.mark.parametrize('op, res_cls, torch_op, patch_pkg',
-                             [(multiclass_nms, NMSResults, torch.ops.sony.multiclass_nms, 'nms'),
+                             [(multiclass_nms, NMSResults, torch.ops.edgemdt.multiclass_nms, 'nms'),
                               (multiclass_nms_with_indices, NMSWithIndicesResults,
-                               torch.ops.sony.multiclass_nms_with_indices, 'nms_with_indices')])
+                               torch.ops.edgemdt.multiclass_nms_with_indices, 'nms_with_indices')])
     def test_torch_op_wrapper(self, mocker, op, res_cls, torch_op, patch_pkg):
-        mock = mocker.patch(f'sony_custom_layers.pytorch.nms.{patch_pkg}._batch_multiclass_nms',
+        mock = mocker.patch(f'edgemdt_cl.pytorch.nms.{patch_pkg}._batch_multiclass_nms',
                             self._batch_multiclass_nms_mock(batch=3, n_dets=5))
         boxes, scores = generate_random_inputs(batch=3, n_boxes=20, n_classes=10)
         ret = op(boxes, scores, score_threshold=0.1, iou_threshold=0.6, max_detections=5)
@@ -133,7 +133,7 @@ class TestMultiClassNMS:
         onnx_model = load_and_validate_onnx_model(path, exp_opset=1)
 
         nms_node = list(onnx_model.graph.node)[0]
-        assert nms_node.domain == 'Sony'
+        assert nms_node.domain == 'EdgeMdt'
         assert nms_node.op_type == ('MultiClassNMSWithIndices' if with_indices else 'MultiClassNMS')
         attrs = sorted(nms_node.attribute, key=lambda a: a.name)
         assert attrs[0].name == 'iou_threshold'
@@ -180,7 +180,7 @@ class TestMultiClassNMS:
         code = f"""
 import onnxruntime as ort
 import numpy as np
-from sony_custom_layers.pytorch import load_custom_ops
+from edgemdt_cl.pytorch import load_custom_ops
 so = ort.SessionOptions()
 so = load_custom_ops(so)
 session = ort.InferenceSession('{path}', so)

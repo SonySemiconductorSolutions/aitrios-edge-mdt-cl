@@ -17,9 +17,9 @@ from typing import Callable
 
 import torch
 
-from sony_custom_layers.util.import_util import is_compatible
+from edgemdt_cl.util.import_util import is_compatible
 
-CUSTOM_LIB_NAME = 'sony'
+CUSTOM_LIB_NAME = 'edgemdt'
 custom_lib = torch.library.Library(CUSTOM_LIB_NAME, "DEF")
 
 

@@ -13,20 +13,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # -----------------------------------------------------------------------------
-import torch
-
-from sony_custom_layers.pytorch.box_decode.box_decode import BOX_DECODE_TORCH_OP
-from sony_custom_layers.pytorch.custom_lib import get_op_qualname
-
-BOX_DECODE_ONNX_OP = "Sony::FasterRCNNBoxDecode"
+import onnx
 
 
-@torch.onnx.symbolic_helper.parse_args('v', 'v', 'v', 'v')
-def box_decode_onnx(g, rel_codes, anchors, scale_factors, clip_window):
-    outputs = g.op(BOX_DECODE_ONNX_OP, rel_codes, anchors, scale_factors, clip_window, outputs=1)
-    # Set output tensors shape and dtype
-    outputs.setType(rel_codes.type())
-    return outputs
+def load_and_validate_onnx_model(path, exp_opset):
+    onnx_model = onnx.load(path)
+    onnx.checker.check_model(onnx_model, full_check=True)
+    opset_info = list(onnx_model.opset_import)[1]
+    assert opset_info.domain == 'EdgeMdt' and opset_info.version == exp_opset
+    return onnx_model
 
 
-torch.onnx.register_custom_op_symbolic(get_op_qualname(BOX_DECODE_TORCH_OP), box_decode_onnx, opset_version=1)
+def check_tensor(onnx_tensor, exp_shape, exp_type, dynamic_batch: bool):
+    tensor_type = onnx_tensor.type.tensor_type
+    shape = [d.dim_value if d.dim_value else d.dim_param for d in tensor_type.shape.dim]
+    exp_shape = ['batch' if dynamic_batch else 1] + exp_shape
+    assert shape == exp_shape
+    assert tensor_type.elem_type == exp_type

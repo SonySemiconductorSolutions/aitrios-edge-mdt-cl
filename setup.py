@@ -23,7 +23,7 @@ Created on 7/9/23
 """
 from setuptools import setup
 
-from sony_custom_layers import pinned_pip_requirements
+from edgemdt_cl import pinned_pip_requirements
 
 extras_require = {
     'torch': pinned_pip_requirements['torch'] + pinned_pip_requirements['torch_ort'],

@@ -24,7 +24,7 @@ def custom_layers_scope(*args: dict):
 
     If the model contains custom layers only from this package:
     ```
-    from sony_custom_layers.keras import custom_layers_scope
+    from edgemdt_cl.keras import custom_layers_scope
     with custom_layers_scope():
         tf.keras.models.load_model(path)
     ```

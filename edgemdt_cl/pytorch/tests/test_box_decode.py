@@ -20,10 +20,10 @@ import onnx.helper
 import pytest
 import torch
 import onnxruntime as ort
-from sony_custom_layers.util.test_util import exec_in_clean_process
+from edgemdt_cl.util.test_util import exec_in_clean_process
 
-from sony_custom_layers.pytorch import FasterRCNNBoxDecode, load_custom_ops
-from sony_custom_layers.pytorch.tests.util import load_and_validate_onnx_model
+from edgemdt_cl.pytorch import FasterRCNNBoxDecode, load_custom_ops
+from edgemdt_cl.pytorch.tests.util import load_and_validate_onnx_model
 
 
 class TestBoxDecode:
@@ -130,7 +130,7 @@ class TestBoxDecode:
         onnx_model = load_and_validate_onnx_model(path, exp_opset=1)
 
         [box_decode_node] = list(onnx_model.graph.node)
-        assert box_decode_node.domain == 'Sony'
+        assert box_decode_node.domain == 'EdgeMdt'
         assert box_decode_node.op_type == 'FasterRCNNBoxDecode'
         assert len(box_decode_node.input) == 4
         assert len(box_decode_node.output) == 1
@@ -175,7 +175,7 @@ class TestBoxDecode:
         code = f"""
 import onnxruntime as ort
 import numpy as np
-from sony_custom_layers.pytorch import load_custom_ops
+from edgemdt_cl.pytorch import load_custom_ops
 so = ort.SessionOptions()
 so = load_custom_ops(so)
 session = ort.InferenceSession('{path}', so)

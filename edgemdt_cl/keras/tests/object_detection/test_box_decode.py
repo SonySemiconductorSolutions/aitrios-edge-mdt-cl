@@ -19,8 +19,8 @@ import numpy as np
 import tensorflow as tf
 import pytest
 
-from sony_custom_layers.keras.object_detection import FasterRCNNBoxDecode
-from sony_custom_layers.keras.tests.common import CustomOpTesterBase
+from edgemdt_cl.keras.object_detection import FasterRCNNBoxDecode
+from edgemdt_cl.keras.tests.common import CustomOpTesterBase
 
 
 class TestBoxDecode(CustomOpTesterBase):
@@ -34,14 +34,14 @@ class TestBoxDecode(CustomOpTesterBase):
         if tf_anchors:
             anchors = tf.constant(anchors)
 
-        with patch('sony_custom_layers.keras.base_custom_layer.__version__', 'foo.bar'):
+        with patch('edgemdt_cl.keras.base_custom_layer.__version__', 'foo.bar'):
             orig_model = self._build_model(anchors, scale_factors, clip_window)
         orig_model.save(path)
 
         # check that the model can be loaded from a clean process (not contaminated by previous imports)
         self._test_clean_load_model_with_custom_objects(path)
 
-        from sony_custom_layers.keras import custom_layers_scope
+        from edgemdt_cl.keras import custom_layers_scope
         with custom_layers_scope():
             model = tf.keras.models.load_model(path)
 
