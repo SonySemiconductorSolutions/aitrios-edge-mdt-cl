@@ -38,9 +38,9 @@ jobs:
       - name: update version
         shell: bash
         run: |
-          echo "__version__ = '${{ inputs.version }}'" >  sony_custom_layers/version.py
-          echo "sony_custom_layers/version.py content:"
-          cat sony_custom_layers/version.py
+          echo "__version__ = '${{ inputs.version }}'" >  edgemdt_cl/version.py
+          echo "edgemdt_cl/version.py content:"
+          cat edgemdt_cl/version.py
 
       - name: Build wheel
         shell: bash

@@ -20,9 +20,9 @@ import dataclasses
 import tensorflow as tf
 import numpy as np
 
-from sony_custom_layers.keras.base_custom_layer import CustomLayer
-from sony_custom_layers.keras.object_detection import FasterRCNNBoxDecode, ScoreConverter
-from sony_custom_layers.keras.custom_objects import register_layer
+from edgemdt_cl.keras.base_custom_layer import CustomLayer
+from edgemdt_cl.keras.object_detection import FasterRCNNBoxDecode, ScoreConverter
+from edgemdt_cl.keras.custom_objects import register_layer
 
 
 @dataclasses.dataclass
@@ -79,7 +79,7 @@ class SSDPostProcess(CustomLayer):
 
     Example:
         ```
-        from sony_custom_layers.keras import SSDPostProcessing, ScoreConverter
+        from edgemdt_cl.keras import SSDPostProcessing, ScoreConverter
 
         post_process = SSDPostProcess(anchors=anchors,
                                       scale_factors=(10, 10, 5, 5),

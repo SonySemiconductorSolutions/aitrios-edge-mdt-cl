@@ -15,9 +15,9 @@
 # -----------------------------------------------------------------------------
 from typing import Optional, TYPE_CHECKING
 
-from sony_custom_layers.util.import_util import validate_installed_libraries
-from sony_custom_layers import required_libraries
-from sony_custom_layers.pytorch.custom_layer import CustomLayer
+from edgemdt_cl.util.import_util import validate_installed_libraries
+from edgemdt_cl import required_libraries
+from edgemdt_cl.pytorch.custom_layer import CustomLayer
 
 if TYPE_CHECKING:
     import onnxruntime as ort
@@ -28,10 +28,10 @@ __all__ = [
 ]
 
 validate_installed_libraries(required_libraries['torch'])
-from sony_custom_layers.pytorch.nms import (    # noqa: E402
+from edgemdt_cl.pytorch.nms import (    # noqa: E402
     multiclass_nms, NMSResults, multiclass_nms_with_indices, NMSWithIndicesResults, MulticlassNMS,
     MulticlassNMSWithIndices)
-from sony_custom_layers.pytorch.box_decode import FasterRCNNBoxDecode    # noqa: E402
+from edgemdt_cl.pytorch.box_decode import FasterRCNNBoxDecode    # noqa: E402
 
 
 def load_custom_ops(ort_session_ops: Optional['ort.SessionOptions'] = None) -> 'ort.SessionOptions':
@@ -48,7 +48,7 @@ def load_custom_ops(ort_session_ops: Optional['ort.SessionOptions'] = None) -> '
     Example:
         ```
         import onnxruntime as ort
-        from sony_custom_layers.pytorch import load_custom_ops
+        from edgemdt_cl.pytorch import load_custom_ops
 
         so = load_custom_ops()
         session = ort.InferenceSession(model_path, sess_options=so)

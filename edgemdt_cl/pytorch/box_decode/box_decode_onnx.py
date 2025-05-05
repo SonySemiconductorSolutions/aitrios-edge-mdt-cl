@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-# Copyright 2023 Sony Semiconductor Israel, Inc. All rights reserved.
+# Copyright 2024 Sony Semiconductor Israel, Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,13 +13,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # -----------------------------------------------------------------------------
+import torch
 
-from sony_custom_layers.util.import_util import validate_installed_libraries
-from sony_custom_layers import required_libraries
+from edgemdt_cl.pytorch.box_decode.box_decode import BOX_DECODE_TORCH_OP
+from edgemdt_cl.pytorch.custom_lib import get_op_qualname
 
-validate_installed_libraries(required_libraries['tf'])
+BOX_DECODE_ONNX_OP = "EdgeMdt::FasterRCNNBoxDecode"
 
-from .object_detection import FasterRCNNBoxDecode, SSDPostProcess, ScoreConverter    # noqa: E402
-from .custom_objects import custom_layers_scope    # noqa: E402
 
-__all__ = ['FasterRCNNBoxDecode', 'ScoreConverter', 'SSDPostProcess', 'custom_layers_scope']
+@torch.onnx.symbolic_helper.parse_args('v', 'v', 'v', 'v')
+def box_decode_onnx(g, rel_codes, anchors, scale_factors, clip_window):
+    outputs = g.op(BOX_DECODE_ONNX_OP, rel_codes, anchors, scale_factors, clip_window, outputs=1)
+    # Set output tensors shape and dtype
+    outputs.setType(rel_codes.type())
+    return outputs
+
+
+torch.onnx.register_custom_op_symbolic(get_op_qualname(BOX_DECODE_TORCH_OP), box_decode_onnx, opset_version=1)

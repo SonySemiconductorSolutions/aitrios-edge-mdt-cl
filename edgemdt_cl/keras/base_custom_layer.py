@@ -14,23 +14,27 @@
 # limitations under the License.
 # -----------------------------------------------------------------------------
 
-from sony_custom_layers.util.test_util import exec_in_clean_process
+import abc
 
-
-class CustomOpTesterBase:
-
-    @staticmethod
-    def _test_clean_load_model_with_custom_objects(path):
-        cmd = f"""
 import tensorflow as tf
-from sony_custom_layers.keras import custom_layers_scope
-with custom_layers_scope():
-    tf.keras.models.load_model('{path}')
-"""
-        exec_in_clean_process(cmd, check=True)
 
-    @staticmethod
-    def _test_load_model(path):
-        cmd = f"import tensorflow as tf;" \
-              f"tf.keras.models.load_model('{path}')"
-        exec_in_clean_process(cmd, check=True)
+from edgemdt_cl.version import __version__
+
+
+class CustomLayer(tf.keras.layers.Layer, abc.ABC):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.custom_version: str = __version__
+
+    def get_config(self):
+        config = super().get_config()
+        config['custom_version'] = self.custom_version
+        return config
+
+    @classmethod
+    def from_config(cls, config):
+        custom_version = config.pop('custom_version')
+        layer = cls(**config)
+        layer.custom_version = custom_version
+        return layer

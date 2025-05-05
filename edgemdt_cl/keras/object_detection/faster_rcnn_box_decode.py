@@ -19,9 +19,9 @@ from typing import Sequence, Union, List
 import tensorflow as tf
 import numpy as np
 
-from sony_custom_layers.common.box_util import corners_to_centroids, centroids_to_corners
-from sony_custom_layers.keras.base_custom_layer import CustomLayer
-from sony_custom_layers.keras.custom_objects import register_layer
+from edgemdt_cl.common.box_util import corners_to_centroids, centroids_to_corners
+from edgemdt_cl.keras.base_custom_layer import CustomLayer
+from edgemdt_cl.keras.custom_objects import register_layer
 
 
 @register_layer
@@ -46,7 +46,7 @@ class FasterRCNNBoxDecode(CustomLayer):
 
     Example:
         ```
-        from sony_custom_layers.keras import FasterRCNNBoxDecode
+        from edgemdt_cl.keras import FasterRCNNBoxDecode
 
         box_decode = FasterRCNNBoxDecode(anchors,
                                          scale_factors=(10, 10, 5, 5),

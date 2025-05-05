@@ -54,7 +54,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # NOTE if newer versions are added, update sony_custom_layers.__init__ pinned_requirements!!!
+        # NOTE if newer versions are added, update edgemdt_cl.__init__ pinned_requirements!!!
         py_ver: ["3.9", "3.10", "3.11"]
         tf_ver: ["2.10", "2.11", "2.12", "2.13", "2.14", "2.15"]
         exclude:
@@ -79,7 +79,7 @@ jobs:
           pip list
       - name: Run pytest
         run: |
-          pytest sony_custom_layers/keras
+          pytest edgemdt_cl/keras
 
   run-torch-tests:
     needs: [precommit]
@@ -90,7 +90,7 @@ jobs:
         # Test selected versions combinations as following:
         # * latest/earliest torch+torchvision X latest/earliest ort X latest/earliest ort-ext X latest/earliest onnx
         # * each remaining version is covered by at least one test
-        # !!!NOTE!!! if newer versions are added, update sony_custom_layers.__init__ pinned_requirements
+        # !!!NOTE!!! if newer versions are added, update edgemdt_cl.__init__ pinned_requirements
         py_ver: ["3.9", "3.10", "3.11", "3.12" ]
         torch_ver: ["2.1", "2.2", "2.3", "2.4", "2.5", "2.6"]
         ort_ver: ["1.15", "1.21"]
@@ -178,7 +178,7 @@ jobs:
           pip list
       - name: Run pytest
         run: |
-          pytest sony_custom_layers/pytorch
+          pytest edgemdt_cl/pytorch
   build:
     needs: [run-tf-tests, run-torch-tests]
     runs-on: ubuntu-latest
@@ -214,11 +214,11 @@ jobs:
       - name: update name and version to dev
         shell: bash
         run: |
-          echo "__version__ = '${{ env.new_ver }}'" >  sony_custom_layers/version.py
-          echo "print sony_custom_layers/version.py"
-          cat sony_custom_layers/version.py
+          echo "__version__ = '${{ env.new_ver }}'" >  edgemdt_cl/version.py
+          echo "print edgemdt_cl/version.py"
+          cat edgemdt_cl/version.py
         
-          sed -i 's/name = sony-custom-layers/name = sony-custom-layers-dev/' setup.cfg
+          sed -i 's/name = edge-mdt-cl/name = edge-mdt-cl-dev/' setup.cfg
           echo "print setup.cfg"
           cat setup.cfg
 

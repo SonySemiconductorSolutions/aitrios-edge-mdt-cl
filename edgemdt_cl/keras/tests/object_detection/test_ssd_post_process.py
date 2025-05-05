@@ -20,8 +20,8 @@ import numpy as np
 import tensorflow as tf
 import pytest
 
-from sony_custom_layers.keras.object_detection import SSDPostProcess, ScoreConverter
-from sony_custom_layers.keras.tests.common import CustomOpTesterBase
+from edgemdt_cl.keras.object_detection import SSDPostProcess, ScoreConverter
+from edgemdt_cl.keras.tests.common import CustomOpTesterBase
 
 
 @pytest.fixture
@@ -57,7 +57,7 @@ class TestSSDPostProcess(CustomOpTesterBase):
 
         # mock box decode inference to return pre-set boxes
         boxes = np.random.rand(batch_size, n_boxes, 4)
-        from sony_custom_layers.keras.object_detection import FasterRCNNBoxDecode
+        from edgemdt_cl.keras.object_detection import FasterRCNNBoxDecode
         bd_call = mocker.patch.object(FasterRCNNBoxDecode, 'call', Mock(return_value=boxes))
 
         # mock nms op
@@ -110,7 +110,7 @@ class TestSSDPostProcess(CustomOpTesterBase):
                            [.8, .85, .9, .95]]]).astype(np.float32)    # yapf: disable
 
         # mock box decode inference to return pre-set boxes
-        from sony_custom_layers.keras.object_detection import FasterRCNNBoxDecode
+        from edgemdt_cl.keras.object_detection import FasterRCNNBoxDecode
         mocker.patch.object(FasterRCNNBoxDecode, 'call', Mock(return_value=boxes))
 
         # each valid score appears once to prevent ambiguity in order
@@ -161,7 +161,7 @@ class TestSSDPostProcess(CustomOpTesterBase):
         iou_thresh = 0.6
         score_conv = ScoreConverter.SIGMOID
         anchors = np.random.uniform(0, 1, size=(n_boxes, 4)).astype(np.float32)
-        with patch('sony_custom_layers.keras.base_custom_layer.__version__', 'foo.bar'):
+        with patch('edgemdt_cl.keras.base_custom_layer.__version__', 'foo.bar'):
             post_process = SSDPostProcess(anchors=anchors,
                                           scale_factors=scale_factors,
                                           clip_size=clip_size,
@@ -179,7 +179,7 @@ class TestSSDPostProcess(CustomOpTesterBase):
         # check that the model can be loaded from a clean process (not contaminated by previous imports)
         self._test_clean_load_model_with_custom_objects(path)
 
-        from sony_custom_layers.keras import custom_layers_scope
+        from edgemdt_cl.keras import custom_layers_scope
         with custom_layers_scope():
             model = tf.keras.models.load_model(path)
 
