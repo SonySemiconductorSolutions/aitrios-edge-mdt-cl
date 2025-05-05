@@ -21,7 +21,7 @@ import torch
 import onnxruntime as ort
 
 from edgemdt_cl.pytorch import (multiclass_nms, multiclass_nms_with_indices, NMSResults, NMSWithIndicesResults,
-                                        MulticlassNMS, MulticlassNMSWithIndices)
+                                MulticlassNMS, MulticlassNMSWithIndices)
 from edgemdt_cl.pytorch import load_custom_ops
 from edgemdt_cl.pytorch.nms.nms_common import LABELS, INDICES, SCORES
 from edgemdt_cl.pytorch.tests.test_nms_common import generate_random_inputs
