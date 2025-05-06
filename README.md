@@ -1,6 +1,6 @@
-# EdgeMdt Custom Layers (EdgeMdt CL)
+# Edge MDT Custom Layers (EdgeMDT CL)
 
-EdgeMdt Custom Layers (EdgeMdt CL) is an open-source project implementing detection post process NN layers not supported by the TensorFlow Keras API or Torch's torch.nn for the easy integration of those layers into pretrained models.
+Edge MDT Custom Layers (EdgeMDT CL) is an open-source project implementing detection post process NN layers not supported by the TensorFlow Keras API or Torch's torch.nn for the easy integration of those layers into pretrained models.
 
 ## Table of Contents
 

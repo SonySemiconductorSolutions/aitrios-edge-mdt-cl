@@ -19,8 +19,8 @@ from edgemdt_cl.pytorch.custom_lib import get_op_qualname
 from .nms import MULTICLASS_NMS_TORCH_OP
 from .nms_with_indices import MULTICLASS_NMS_WITH_INDICES_TORCH_OP
 
-MULTICLASS_NMS_ONNX_OP = "EdgeMdt::MultiClassNMS"
-MULTICLASS_NMS_WITH_INDICES_ONNX_OP = "EdgeMdt::MultiClassNMSWithIndices"
+MULTICLASS_NMS_ONNX_OP = "EdgeMDT::MultiClassNMS"
+MULTICLASS_NMS_WITH_INDICES_ONNX_OP = "EdgeMDT::MultiClassNMSWithIndices"
 
 
 @torch.onnx.symbolic_helper.parse_args('v', 'v', 'f', 'f', 'i')

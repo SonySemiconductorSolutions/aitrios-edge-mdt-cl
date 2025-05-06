@@ -20,7 +20,7 @@ def load_and_validate_onnx_model(path, exp_opset):
     onnx_model = onnx.load(path)
     onnx.checker.check_model(onnx_model, full_check=True)
     opset_info = list(onnx_model.opset_import)[1]
-    assert opset_info.domain == 'EdgeMdt' and opset_info.version == exp_opset
+    assert opset_info.domain == 'EdgeMDT' and opset_info.version == exp_opset
     return onnx_model
 
 

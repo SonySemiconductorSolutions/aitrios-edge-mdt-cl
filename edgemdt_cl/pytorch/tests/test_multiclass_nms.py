@@ -133,7 +133,7 @@ class TestMultiClassNMS:
         onnx_model = load_and_validate_onnx_model(path, exp_opset=1)
 
         nms_node = list(onnx_model.graph.node)[0]
-        assert nms_node.domain == 'EdgeMdt'
+        assert nms_node.domain == 'EdgeMDT'
         assert nms_node.op_type == ('MultiClassNMSWithIndices' if with_indices else 'MultiClassNMS')
         attrs = sorted(nms_node.attribute, key=lambda a: a.name)
         assert attrs[0].name == 'iou_threshold'

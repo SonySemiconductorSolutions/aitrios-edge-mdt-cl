@@ -18,7 +18,7 @@ import torch
 from edgemdt_cl.pytorch.box_decode.box_decode import BOX_DECODE_TORCH_OP
 from edgemdt_cl.pytorch.custom_lib import get_op_qualname
 
-BOX_DECODE_ONNX_OP = "EdgeMdt::FasterRCNNBoxDecode"
+BOX_DECODE_ONNX_OP = "EdgeMDT::FasterRCNNBoxDecode"
 
 
 @torch.onnx.symbolic_helper.parse_args('v', 'v', 'v', 'v')

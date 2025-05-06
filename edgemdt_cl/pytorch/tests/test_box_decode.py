@@ -130,7 +130,7 @@ class TestBoxDecode:
         onnx_model = load_and_validate_onnx_model(path, exp_opset=1)
 
         [box_decode_node] = list(onnx_model.graph.node)
-        assert box_decode_node.domain == 'EdgeMdt'
+        assert box_decode_node.domain == 'EdgeMDT'
         assert box_decode_node.op_type == 'FasterRCNNBoxDecode'
         assert len(box_decode_node.input) == 4
         assert len(box_decode_node.output) == 1
