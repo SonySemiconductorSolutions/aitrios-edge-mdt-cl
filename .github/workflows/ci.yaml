@@ -227,6 +227,6 @@ jobs:
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
           pip install twine
-          twine upload --repository pypi dist/* -u __token__ -p ${{ secrets.PYPI_API_KEY }}
+          twine upload --repository pypi dist/* -u __token__ -p ${{ secrets.PYPI_KEY_DEV }}
           git tag ${{ env.new_tag }}
           git push origin ${{ env.new_tag }}
