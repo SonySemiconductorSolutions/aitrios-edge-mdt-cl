@@ -52,7 +52,7 @@ jobs:
         if: inputs.to_testpypi == false
         shell: bash
         run: |
-          twine upload --repository pypi dist/* -u __token__ -p ${{ secrets.PYPI_API_KEY }}
+          twine upload --repository pypi dist/* -u __token__ -p ${{ secrets.PYPI_RELEASE }}
 
       - name: Publish package testpypi
         if: inputs.to_testpypi == true
