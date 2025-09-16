@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="pdoc 15.0.3"/>
+    <meta name="generator" content="pdoc 15.0.4"/>
     <title>edgemdt_cl.pytorch API documentation</title>
 
     <style>/*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
@@ -139,6 +139,54 @@
 
             </li>
             <li>
+                    <a class="class" href="#MulticlassNMSOBB">MulticlassNMSOBB</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#MulticlassNMSOBB.__init__">MulticlassNMSOBB</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#MulticlassNMSOBB.forward">forward</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="function" href="#multiclass_nms_obb">multiclass_nms_obb</a>
+            </li>
+            <li>
+                    <a class="class" href="#NMSOBBResults">NMSOBBResults</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#NMSOBBResults.__init__">NMSOBBResults</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#NMSOBBResults.boxes">boxes</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#NMSOBBResults.scores">scores</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#NMSOBBResults.labels">labels</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#NMSOBBResults.angles">angles</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#NMSOBBResults.n_valid">n_valid</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#NMSOBBResults.detach">detach</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#NMSOBBResults.cpu">cpu</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#NMSOBBResults.apply">apply</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="class" href="#CustomLayer">CustomLayer</a>
                             <ul class="memberlist">
                 </ul>
@@ -166,7 +214,7 @@ edgemdt_cl<wbr>.pytorch    </h1>
                         <label class="view-source-button" for="mod-pytorch-view-source"><span>View Source</span></label>
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="c1"># -----------------------------------------------------------------------------</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a><span class="c1"># Copyright 2024 Sony Semiconductor Israel, Inc. All rights reserved.</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a><span class="c1"># Copyright 2025 Sony Semiconductor Solutions, Inc. All rights reserved.</span>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="c1">#</span>
 </span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="c1"># you may not use this file except in compliance with the License.</span>
@@ -191,52 +239,54 @@ edgemdt_cl<wbr>.pytorch    </h1>
 </span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>
 </span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
 </span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>    <span class="s1">&#39;multiclass_nms&#39;</span><span class="p">,</span> <span class="s1">&#39;NMSResults&#39;</span><span class="p">,</span> <span class="s1">&#39;multiclass_nms_with_indices&#39;</span><span class="p">,</span> <span class="s1">&#39;NMSWithIndicesResults&#39;</span><span class="p">,</span> <span class="s1">&#39;FasterRCNNBoxDecode&#39;</span><span class="p">,</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>    <span class="s1">&#39;load_custom_ops&#39;</span><span class="p">,</span> <span class="s1">&#39;MulticlassNMS&#39;</span><span class="p">,</span> <span class="s1">&#39;MulticlassNMSWithIndices&#39;</span><span class="p">,</span> <span class="s1">&#39;CustomLayer&#39;</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>    <span class="s1">&#39;load_custom_ops&#39;</span><span class="p">,</span> <span class="s1">&#39;MulticlassNMS&#39;</span><span class="p">,</span> <span class="s1">&#39;MulticlassNMSWithIndices&#39;</span><span class="p">,</span> <span class="s1">&#39;MulticlassNMSOBB&#39;</span><span class="p">,</span> <span class="s1">&#39;multiclass_nms_obb&#39;</span><span class="p">,</span> <span class="s1">&#39;NMSOBBResults&#39;</span><span class="p">,</span> <span class="s1">&#39;CustomLayer&#39;</span>
 </span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="p">]</span>
 </span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>
 </span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a><span class="n">validate_installed_libraries</span><span class="p">(</span><span class="n">required_libraries</span><span class="p">[</span><span class="s1">&#39;torch&#39;</span><span class="p">])</span>
 </span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">edgemdt_cl.pytorch.nms</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>    <span class="c1"># noqa: E402</span>
 </span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>    <span class="n">multiclass_nms</span><span class="p">,</span> <span class="n">NMSResults</span><span class="p">,</span> <span class="n">multiclass_nms_with_indices</span><span class="p">,</span> <span class="n">NMSWithIndicesResults</span><span class="p">,</span> <span class="n">MulticlassNMS</span><span class="p">,</span>
 </span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>    <span class="n">MulticlassNMSWithIndices</span><span class="p">)</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">edgemdt_cl.pytorch.box_decode</span><span class="w"> </span><span class="kn">import</span> <span class="n">FasterRCNNBoxDecode</span>    <span class="c1"># noqa: E402</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>
+</span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">edgemdt_cl.pytorch.nms_obb</span><span class="w"> </span><span class="kn">import</span> <span class="n">multiclass_nms_obb</span><span class="p">,</span> <span class="n">NMSOBBResults</span><span class="p">,</span> <span class="n">MulticlassNMSOBB</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a><span class="kn">from</span><span class="w"> </span><span class="nn">edgemdt_cl.pytorch.box_decode</span><span class="w"> </span><span class="kn">import</span> <span class="n">FasterRCNNBoxDecode</span>    <span class="c1"># noqa: E402</span>
 </span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a>
-</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a><span class="k">def</span><span class="w"> </span><span class="nf">load_custom_ops</span><span class="p">(</span><span class="n">ort_session_ops</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;ort.SessionOptions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;ort.SessionOptions&#39;</span><span class="p">:</span>
-</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a><span class="sd">    Registers the custom ops implementation for onnxruntime, and sets up the SessionOptions object for onnxruntime</span>
-</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a><span class="sd">    session.</span>
-</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>
-</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a><span class="sd">    Args:</span>
-</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a><span class="sd">        ort_session_ops: SessionOptions object to register the custom ops library on. If None, creates a new object.</span>
-</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>
-</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a><span class="sd">    Returns:</span>
-</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a><span class="sd">        SessionOptions object with registered custom ops.</span>
-</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>
-</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a><span class="sd">    Example:</span>
-</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a><span class="sd">        ```</span>
-</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a><span class="sd">        import onnxruntime as ort</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a><span class="sd">        from edgemdt_cl.pytorch import load_custom_ops</span>
-</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a>
-</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a><span class="sd">        so = load_custom_ops()</span>
-</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a><span class="sd">        session = ort.InferenceSession(model_path, sess_options=so)</span>
-</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a><span class="sd">        session.run(...)</span>
-</span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a><span class="sd">        ```</span>
-</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a><span class="sd">        You can also pass your own SessionOptions object upon which to register the custom ops</span>
-</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a><span class="sd">        ```</span>
-</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a><span class="sd">        load_custom_ops(ort_session_options=so)</span>
-</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a><span class="sd">        ```</span>
-</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a>    <span class="n">validate_installed_libraries</span><span class="p">(</span><span class="n">required_libraries</span><span class="p">[</span><span class="s1">&#39;torch_ort&#39;</span><span class="p">])</span>
-</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a>
-</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a>    <span class="c1"># trigger onnxruntime op registration</span>
-</span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">.nms</span><span class="w"> </span><span class="kn">import</span> <span class="n">nms_ort</span>
-</span><span id="L-66"><a href="#L-66"><span class="linenos">66</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">.box_decode</span><span class="w"> </span><span class="kn">import</span> <span class="n">box_decode_ort</span>
-</span><span id="L-67"><a href="#L-67"><span class="linenos">67</span></a>
-</span><span id="L-68"><a href="#L-68"><span class="linenos">68</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">onnxruntime_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_library_path</span>
-</span><span id="L-69"><a href="#L-69"><span class="linenos">69</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">onnxruntime</span><span class="w"> </span><span class="kn">import</span> <span class="n">SessionOptions</span>
-</span><span id="L-70"><a href="#L-70"><span class="linenos">70</span></a>    <span class="n">ort_session_ops</span> <span class="o">=</span> <span class="n">ort_session_ops</span> <span class="ow">or</span> <span class="n">SessionOptions</span><span class="p">()</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos">71</span></a>    <span class="n">ort_session_ops</span><span class="o">.</span><span class="n">register_custom_ops_library</span><span class="p">(</span><span class="n">get_library_path</span><span class="p">())</span>
-</span><span id="L-72"><a href="#L-72"><span class="linenos">72</span></a>    <span class="k">return</span> <span class="n">ort_session_ops</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>
+</span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a><span class="k">def</span><span class="w"> </span><span class="nf">load_custom_ops</span><span class="p">(</span><span class="n">ort_session_ops</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;ort.SessionOptions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;ort.SessionOptions&#39;</span><span class="p">:</span>
+</span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a><span class="sd">    Registers the custom ops implementation for onnxruntime, and sets up the SessionOptions object for onnxruntime</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a><span class="sd">    session.</span>
+</span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>
+</span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a><span class="sd">    Args:</span>
+</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a><span class="sd">        ort_session_ops: SessionOptions object to register the custom ops library on. If None, creates a new object.</span>
+</span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>
+</span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a><span class="sd">    Returns:</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a><span class="sd">        SessionOptions object with registered custom ops.</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>
+</span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a><span class="sd">    Example:</span>
+</span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a><span class="sd">        ```</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a><span class="sd">        import onnxruntime as ort</span>
+</span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a><span class="sd">        from edgemdt_cl.pytorch import load_custom_ops</span>
+</span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>
+</span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a><span class="sd">        so = load_custom_ops()</span>
+</span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a><span class="sd">        session = ort.InferenceSession(model_path, sess_options=so)</span>
+</span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a><span class="sd">        session.run(...)</span>
+</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a><span class="sd">        ```</span>
+</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a><span class="sd">        You can also pass your own SessionOptions object upon which to register the custom ops</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a><span class="sd">        ```</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a><span class="sd">        load_custom_ops(ort_session_options=so)</span>
+</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a><span class="sd">        ```</span>
+</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a>    <span class="n">validate_installed_libraries</span><span class="p">(</span><span class="n">required_libraries</span><span class="p">[</span><span class="s1">&#39;torch_ort&#39;</span><span class="p">])</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a>
+</span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a>    <span class="c1"># trigger onnxruntime op registration</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos">66</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">.nms</span><span class="w"> </span><span class="kn">import</span> <span class="n">nms_ort</span>
+</span><span id="L-67"><a href="#L-67"><span class="linenos">67</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">.nms_obb</span><span class="w"> </span><span class="kn">import</span> <span class="n">nms_obb_ort</span>
+</span><span id="L-68"><a href="#L-68"><span class="linenos">68</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">.box_decode</span><span class="w"> </span><span class="kn">import</span> <span class="n">box_decode_ort</span>
+</span><span id="L-69"><a href="#L-69"><span class="linenos">69</span></a>
+</span><span id="L-70"><a href="#L-70"><span class="linenos">70</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">onnxruntime_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_library_path</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos">71</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">onnxruntime</span><span class="w"> </span><span class="kn">import</span> <span class="n">SessionOptions</span>
+</span><span id="L-72"><a href="#L-72"><span class="linenos">72</span></a>    <span class="n">ort_session_ops</span> <span class="o">=</span> <span class="n">ort_session_ops</span> <span class="ow">or</span> <span class="n">SessionOptions</span><span class="p">()</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos">73</span></a>    <span class="n">ort_session_ops</span><span class="o">.</span><span class="n">register_custom_ops_library</span><span class="p">(</span><span class="n">get_library_path</span><span class="p">())</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos">74</span></a>    <span class="k">return</span> <span class="n">ort_session_ops</span>
 </span></pre></div>
 
 
@@ -1013,42 +1063,43 @@ registered hooks while the latter silently ignores them.</p>
 
     </div>
     <a class="headerlink" href="#load_custom_ops"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="load_custom_ops-38"><a href="#load_custom_ops-38"><span class="linenos">38</span></a><span class="k">def</span><span class="w"> </span><span class="nf">load_custom_ops</span><span class="p">(</span><span class="n">ort_session_ops</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;ort.SessionOptions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;ort.SessionOptions&#39;</span><span class="p">:</span>
-</span><span id="load_custom_ops-39"><a href="#load_custom_ops-39"><span class="linenos">39</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="load_custom_ops-40"><a href="#load_custom_ops-40"><span class="linenos">40</span></a><span class="sd">    Registers the custom ops implementation for onnxruntime, and sets up the SessionOptions object for onnxruntime</span>
-</span><span id="load_custom_ops-41"><a href="#load_custom_ops-41"><span class="linenos">41</span></a><span class="sd">    session.</span>
-</span><span id="load_custom_ops-42"><a href="#load_custom_ops-42"><span class="linenos">42</span></a>
-</span><span id="load_custom_ops-43"><a href="#load_custom_ops-43"><span class="linenos">43</span></a><span class="sd">    Args:</span>
-</span><span id="load_custom_ops-44"><a href="#load_custom_ops-44"><span class="linenos">44</span></a><span class="sd">        ort_session_ops: SessionOptions object to register the custom ops library on. If None, creates a new object.</span>
-</span><span id="load_custom_ops-45"><a href="#load_custom_ops-45"><span class="linenos">45</span></a>
-</span><span id="load_custom_ops-46"><a href="#load_custom_ops-46"><span class="linenos">46</span></a><span class="sd">    Returns:</span>
-</span><span id="load_custom_ops-47"><a href="#load_custom_ops-47"><span class="linenos">47</span></a><span class="sd">        SessionOptions object with registered custom ops.</span>
-</span><span id="load_custom_ops-48"><a href="#load_custom_ops-48"><span class="linenos">48</span></a>
-</span><span id="load_custom_ops-49"><a href="#load_custom_ops-49"><span class="linenos">49</span></a><span class="sd">    Example:</span>
-</span><span id="load_custom_ops-50"><a href="#load_custom_ops-50"><span class="linenos">50</span></a><span class="sd">        ```</span>
-</span><span id="load_custom_ops-51"><a href="#load_custom_ops-51"><span class="linenos">51</span></a><span class="sd">        import onnxruntime as ort</span>
-</span><span id="load_custom_ops-52"><a href="#load_custom_ops-52"><span class="linenos">52</span></a><span class="sd">        from edgemdt_cl.pytorch import load_custom_ops</span>
-</span><span id="load_custom_ops-53"><a href="#load_custom_ops-53"><span class="linenos">53</span></a>
-</span><span id="load_custom_ops-54"><a href="#load_custom_ops-54"><span class="linenos">54</span></a><span class="sd">        so = load_custom_ops()</span>
-</span><span id="load_custom_ops-55"><a href="#load_custom_ops-55"><span class="linenos">55</span></a><span class="sd">        session = ort.InferenceSession(model_path, sess_options=so)</span>
-</span><span id="load_custom_ops-56"><a href="#load_custom_ops-56"><span class="linenos">56</span></a><span class="sd">        session.run(...)</span>
-</span><span id="load_custom_ops-57"><a href="#load_custom_ops-57"><span class="linenos">57</span></a><span class="sd">        ```</span>
-</span><span id="load_custom_ops-58"><a href="#load_custom_ops-58"><span class="linenos">58</span></a><span class="sd">        You can also pass your own SessionOptions object upon which to register the custom ops</span>
-</span><span id="load_custom_ops-59"><a href="#load_custom_ops-59"><span class="linenos">59</span></a><span class="sd">        ```</span>
-</span><span id="load_custom_ops-60"><a href="#load_custom_ops-60"><span class="linenos">60</span></a><span class="sd">        load_custom_ops(ort_session_options=so)</span>
-</span><span id="load_custom_ops-61"><a href="#load_custom_ops-61"><span class="linenos">61</span></a><span class="sd">        ```</span>
-</span><span id="load_custom_ops-62"><a href="#load_custom_ops-62"><span class="linenos">62</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="load_custom_ops-63"><a href="#load_custom_ops-63"><span class="linenos">63</span></a>    <span class="n">validate_installed_libraries</span><span class="p">(</span><span class="n">required_libraries</span><span class="p">[</span><span class="s1">&#39;torch_ort&#39;</span><span class="p">])</span>
-</span><span id="load_custom_ops-64"><a href="#load_custom_ops-64"><span class="linenos">64</span></a>
-</span><span id="load_custom_ops-65"><a href="#load_custom_ops-65"><span class="linenos">65</span></a>    <span class="c1"># trigger onnxruntime op registration</span>
-</span><span id="load_custom_ops-66"><a href="#load_custom_ops-66"><span class="linenos">66</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">.nms</span><span class="w"> </span><span class="kn">import</span> <span class="n">nms_ort</span>
-</span><span id="load_custom_ops-67"><a href="#load_custom_ops-67"><span class="linenos">67</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">.box_decode</span><span class="w"> </span><span class="kn">import</span> <span class="n">box_decode_ort</span>
-</span><span id="load_custom_ops-68"><a href="#load_custom_ops-68"><span class="linenos">68</span></a>
-</span><span id="load_custom_ops-69"><a href="#load_custom_ops-69"><span class="linenos">69</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">onnxruntime_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_library_path</span>
-</span><span id="load_custom_ops-70"><a href="#load_custom_ops-70"><span class="linenos">70</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">onnxruntime</span><span class="w"> </span><span class="kn">import</span> <span class="n">SessionOptions</span>
-</span><span id="load_custom_ops-71"><a href="#load_custom_ops-71"><span class="linenos">71</span></a>    <span class="n">ort_session_ops</span> <span class="o">=</span> <span class="n">ort_session_ops</span> <span class="ow">or</span> <span class="n">SessionOptions</span><span class="p">()</span>
-</span><span id="load_custom_ops-72"><a href="#load_custom_ops-72"><span class="linenos">72</span></a>    <span class="n">ort_session_ops</span><span class="o">.</span><span class="n">register_custom_ops_library</span><span class="p">(</span><span class="n">get_library_path</span><span class="p">())</span>
-</span><span id="load_custom_ops-73"><a href="#load_custom_ops-73"><span class="linenos">73</span></a>    <span class="k">return</span> <span class="n">ort_session_ops</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="load_custom_ops-39"><a href="#load_custom_ops-39"><span class="linenos">39</span></a><span class="k">def</span><span class="w"> </span><span class="nf">load_custom_ops</span><span class="p">(</span><span class="n">ort_session_ops</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="s1">&#39;ort.SessionOptions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;ort.SessionOptions&#39;</span><span class="p">:</span>
+</span><span id="load_custom_ops-40"><a href="#load_custom_ops-40"><span class="linenos">40</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="load_custom_ops-41"><a href="#load_custom_ops-41"><span class="linenos">41</span></a><span class="sd">    Registers the custom ops implementation for onnxruntime, and sets up the SessionOptions object for onnxruntime</span>
+</span><span id="load_custom_ops-42"><a href="#load_custom_ops-42"><span class="linenos">42</span></a><span class="sd">    session.</span>
+</span><span id="load_custom_ops-43"><a href="#load_custom_ops-43"><span class="linenos">43</span></a>
+</span><span id="load_custom_ops-44"><a href="#load_custom_ops-44"><span class="linenos">44</span></a><span class="sd">    Args:</span>
+</span><span id="load_custom_ops-45"><a href="#load_custom_ops-45"><span class="linenos">45</span></a><span class="sd">        ort_session_ops: SessionOptions object to register the custom ops library on. If None, creates a new object.</span>
+</span><span id="load_custom_ops-46"><a href="#load_custom_ops-46"><span class="linenos">46</span></a>
+</span><span id="load_custom_ops-47"><a href="#load_custom_ops-47"><span class="linenos">47</span></a><span class="sd">    Returns:</span>
+</span><span id="load_custom_ops-48"><a href="#load_custom_ops-48"><span class="linenos">48</span></a><span class="sd">        SessionOptions object with registered custom ops.</span>
+</span><span id="load_custom_ops-49"><a href="#load_custom_ops-49"><span class="linenos">49</span></a>
+</span><span id="load_custom_ops-50"><a href="#load_custom_ops-50"><span class="linenos">50</span></a><span class="sd">    Example:</span>
+</span><span id="load_custom_ops-51"><a href="#load_custom_ops-51"><span class="linenos">51</span></a><span class="sd">        ```</span>
+</span><span id="load_custom_ops-52"><a href="#load_custom_ops-52"><span class="linenos">52</span></a><span class="sd">        import onnxruntime as ort</span>
+</span><span id="load_custom_ops-53"><a href="#load_custom_ops-53"><span class="linenos">53</span></a><span class="sd">        from edgemdt_cl.pytorch import load_custom_ops</span>
+</span><span id="load_custom_ops-54"><a href="#load_custom_ops-54"><span class="linenos">54</span></a>
+</span><span id="load_custom_ops-55"><a href="#load_custom_ops-55"><span class="linenos">55</span></a><span class="sd">        so = load_custom_ops()</span>
+</span><span id="load_custom_ops-56"><a href="#load_custom_ops-56"><span class="linenos">56</span></a><span class="sd">        session = ort.InferenceSession(model_path, sess_options=so)</span>
+</span><span id="load_custom_ops-57"><a href="#load_custom_ops-57"><span class="linenos">57</span></a><span class="sd">        session.run(...)</span>
+</span><span id="load_custom_ops-58"><a href="#load_custom_ops-58"><span class="linenos">58</span></a><span class="sd">        ```</span>
+</span><span id="load_custom_ops-59"><a href="#load_custom_ops-59"><span class="linenos">59</span></a><span class="sd">        You can also pass your own SessionOptions object upon which to register the custom ops</span>
+</span><span id="load_custom_ops-60"><a href="#load_custom_ops-60"><span class="linenos">60</span></a><span class="sd">        ```</span>
+</span><span id="load_custom_ops-61"><a href="#load_custom_ops-61"><span class="linenos">61</span></a><span class="sd">        load_custom_ops(ort_session_options=so)</span>
+</span><span id="load_custom_ops-62"><a href="#load_custom_ops-62"><span class="linenos">62</span></a><span class="sd">        ```</span>
+</span><span id="load_custom_ops-63"><a href="#load_custom_ops-63"><span class="linenos">63</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="load_custom_ops-64"><a href="#load_custom_ops-64"><span class="linenos">64</span></a>    <span class="n">validate_installed_libraries</span><span class="p">(</span><span class="n">required_libraries</span><span class="p">[</span><span class="s1">&#39;torch_ort&#39;</span><span class="p">])</span>
+</span><span id="load_custom_ops-65"><a href="#load_custom_ops-65"><span class="linenos">65</span></a>
+</span><span id="load_custom_ops-66"><a href="#load_custom_ops-66"><span class="linenos">66</span></a>    <span class="c1"># trigger onnxruntime op registration</span>
+</span><span id="load_custom_ops-67"><a href="#load_custom_ops-67"><span class="linenos">67</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">.nms</span><span class="w"> </span><span class="kn">import</span> <span class="n">nms_ort</span>
+</span><span id="load_custom_ops-68"><a href="#load_custom_ops-68"><span class="linenos">68</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">.nms_obb</span><span class="w"> </span><span class="kn">import</span> <span class="n">nms_obb_ort</span>
+</span><span id="load_custom_ops-69"><a href="#load_custom_ops-69"><span class="linenos">69</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">.box_decode</span><span class="w"> </span><span class="kn">import</span> <span class="n">box_decode_ort</span>
+</span><span id="load_custom_ops-70"><a href="#load_custom_ops-70"><span class="linenos">70</span></a>
+</span><span id="load_custom_ops-71"><a href="#load_custom_ops-71"><span class="linenos">71</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">onnxruntime_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_library_path</span>
+</span><span id="load_custom_ops-72"><a href="#load_custom_ops-72"><span class="linenos">72</span></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">onnxruntime</span><span class="w"> </span><span class="kn">import</span> <span class="n">SessionOptions</span>
+</span><span id="load_custom_ops-73"><a href="#load_custom_ops-73"><span class="linenos">73</span></a>    <span class="n">ort_session_ops</span> <span class="o">=</span> <span class="n">ort_session_ops</span> <span class="ow">or</span> <span class="n">SessionOptions</span><span class="p">()</span>
+</span><span id="load_custom_ops-74"><a href="#load_custom_ops-74"><span class="linenos">74</span></a>    <span class="n">ort_session_ops</span><span class="o">.</span><span class="n">register_custom_ops_library</span><span class="p">(</span><span class="n">get_library_path</span><span class="p">())</span>
+</span><span id="load_custom_ops-75"><a href="#load_custom_ops-75"><span class="linenos">75</span></a>    <span class="k">return</span> <span class="n">ort_session_ops</span>
 </span></pre></div>
 
 
@@ -1407,6 +1458,480 @@ session.run(...)
     - labels: The labels for each box with shape [batch, max_detections].
     - indices: Indices of the input boxes that have been selected.
     - n_valid: The number of valid detections out of 'max_detections' with shape [batch, 1]</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="MulticlassNMSOBB">
+                            <input id="MulticlassNMSOBB-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">MulticlassNMSOBB</span><wbr>(<span class="base"><a href="#CustomLayer">edgemdt_cl.pytorch.CustomLayer</a></span>):
+
+                <label class="view-source-button" for="MulticlassNMSOBB-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#MulticlassNMSOBB"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MulticlassNMSOBB-102"><a href="#MulticlassNMSOBB-102"><span class="linenos">102</span></a><span class="k">class</span><span class="w"> </span><span class="nc">MulticlassNMSOBB</span><span class="p">(</span><span class="n">CustomLayer</span><span class="p">):</span>
+</span><span id="MulticlassNMSOBB-103"><a href="#MulticlassNMSOBB-103"><span class="linenos">103</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MulticlassNMSOBB-104"><a href="#MulticlassNMSOBB-104"><span class="linenos">104</span></a><span class="sd">    A torch.nn.Module for multiclass NMS for oriented bounding box. See multiclass_nms_obb for additional information.</span>
+</span><span id="MulticlassNMSOBB-105"><a href="#MulticlassNMSOBB-105"><span class="linenos">105</span></a>
+</span><span id="MulticlassNMSOBB-106"><a href="#MulticlassNMSOBB-106"><span class="linenos">106</span></a><span class="sd">    Usage example:</span>
+</span><span id="MulticlassNMSOBB-107"><a href="#MulticlassNMSOBB-107"><span class="linenos">107</span></a><span class="sd">        batch size=1, 1000 boxes, 50 classes</span>
+</span><span id="MulticlassNMSOBB-108"><a href="#MulticlassNMSOBB-108"><span class="linenos">108</span></a><span class="sd">        boxes = torch.rand(1, 1000, 4)</span>
+</span><span id="MulticlassNMSOBB-109"><a href="#MulticlassNMSOBB-109"><span class="linenos">109</span></a><span class="sd">        scores = torch.rand(1, 1000, 50)</span>
+</span><span id="MulticlassNMSOBB-110"><a href="#MulticlassNMSOBB-110"><span class="linenos">110</span></a><span class="sd">        angles = torch.rand(1, 1000, 1)</span>
+</span><span id="MulticlassNMSOBB-111"><a href="#MulticlassNMSOBB-111"><span class="linenos">111</span></a><span class="sd">        nms_obb = MulticlassNMSOBB(score_threshold=0.1,</span>
+</span><span id="MulticlassNMSOBB-112"><a href="#MulticlassNMSOBB-112"><span class="linenos">112</span></a><span class="sd">                                   iou_threshold=0.6</span>
+</span><span id="MulticlassNMSOBB-113"><a href="#MulticlassNMSOBB-113"><span class="linenos">113</span></a><span class="sd">                                   max_detections=300)</span>
+</span><span id="MulticlassNMSOBB-114"><a href="#MulticlassNMSOBB-114"><span class="linenos">114</span></a><span class="sd">        res = nms_obb(boxes, scores, angles)</span>
+</span><span id="MulticlassNMSOBB-115"><a href="#MulticlassNMSOBB-115"><span class="linenos">115</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="MulticlassNMSOBB-116"><a href="#MulticlassNMSOBB-116"><span class="linenos">116</span></a>
+</span><span id="MulticlassNMSOBB-117"><a href="#MulticlassNMSOBB-117"><span class="linenos">117</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">score_threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">iou_threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">max_detections</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="MulticlassNMSOBB-118"><a href="#MulticlassNMSOBB-118"><span class="linenos">118</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MulticlassNMSOBB-119"><a href="#MulticlassNMSOBB-119"><span class="linenos">119</span></a><span class="sd">        Args:</span>
+</span><span id="MulticlassNMSOBB-120"><a href="#MulticlassNMSOBB-120"><span class="linenos">120</span></a><span class="sd">            score_threshold (float): The score threshold. Candidates with scores below the threshold are discarded.</span>
+</span><span id="MulticlassNMSOBB-121"><a href="#MulticlassNMSOBB-121"><span class="linenos">121</span></a><span class="sd">            iou_threshold (float): The Intersection Over Union (IOU) threshold for boxes overlap.</span>
+</span><span id="MulticlassNMSOBB-122"><a href="#MulticlassNMSOBB-122"><span class="linenos">122</span></a><span class="sd">            max_detections (int): The number of detections to return.</span>
+</span><span id="MulticlassNMSOBB-123"><a href="#MulticlassNMSOBB-123"><span class="linenos">123</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="MulticlassNMSOBB-124"><a href="#MulticlassNMSOBB-124"><span class="linenos">124</span></a>        <span class="nb">super</span><span class="p">(</span><span class="n">MulticlassNMSOBB</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="MulticlassNMSOBB-125"><a href="#MulticlassNMSOBB-125"><span class="linenos">125</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">score_threshold</span> <span class="o">=</span> <span class="n">score_threshold</span>
+</span><span id="MulticlassNMSOBB-126"><a href="#MulticlassNMSOBB-126"><span class="linenos">126</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">iou_threshold</span> <span class="o">=</span> <span class="n">iou_threshold</span>
+</span><span id="MulticlassNMSOBB-127"><a href="#MulticlassNMSOBB-127"><span class="linenos">127</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">max_detections</span> <span class="o">=</span> <span class="n">max_detections</span>
+</span><span id="MulticlassNMSOBB-128"><a href="#MulticlassNMSOBB-128"><span class="linenos">128</span></a>
+</span><span id="MulticlassNMSOBB-129"><a href="#MulticlassNMSOBB-129"><span class="linenos">129</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">scores</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">angles</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+</span><span id="MulticlassNMSOBB-130"><a href="#MulticlassNMSOBB-130"><span class="linenos">130</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MulticlassNMSOBB-131"><a href="#MulticlassNMSOBB-131"><span class="linenos">131</span></a><span class="sd">        Args:</span>
+</span><span id="MulticlassNMSOBB-132"><a href="#MulticlassNMSOBB-132"><span class="linenos">132</span></a><span class="sd">            boxes (Tensor): Input boxes with shape [batch, n_boxes, 4], specified in center coordinates, </span>
+</span><span id="MulticlassNMSOBB-133"><a href="#MulticlassNMSOBB-133"><span class="linenos">133</span></a><span class="sd">                            width and height (x_center, y_center, w, h).</span>
+</span><span id="MulticlassNMSOBB-134"><a href="#MulticlassNMSOBB-134"><span class="linenos">134</span></a><span class="sd">            scores (Tensor): Input scores with shape [batch, n_boxes, n_classes].</span>
+</span><span id="MulticlassNMSOBB-135"><a href="#MulticlassNMSOBB-135"><span class="linenos">135</span></a><span class="sd">            angles (Tensor): Input angles with shape [batch, n_boxes, 1].</span>
+</span><span id="MulticlassNMSOBB-136"><a href="#MulticlassNMSOBB-136"><span class="linenos">136</span></a>
+</span><span id="MulticlassNMSOBB-137"><a href="#MulticlassNMSOBB-137"><span class="linenos">137</span></a><span class="sd">        Returns: &#39;NMSOBBResults&#39; named tuple:</span>
+</span><span id="MulticlassNMSOBB-138"><a href="#MulticlassNMSOBB-138"><span class="linenos">138</span></a><span class="sd">            - boxes: The selected boxes with shape [batch, max_detections, 4].</span>
+</span><span id="MulticlassNMSOBB-139"><a href="#MulticlassNMSOBB-139"><span class="linenos">139</span></a><span class="sd">            - scores: The corresponding scores in descending order with shape [batch, max_detections].</span>
+</span><span id="MulticlassNMSOBB-140"><a href="#MulticlassNMSOBB-140"><span class="linenos">140</span></a><span class="sd">            - labels: The labels for each box with shape [batch, max_detections].</span>
+</span><span id="MulticlassNMSOBB-141"><a href="#MulticlassNMSOBB-141"><span class="linenos">141</span></a><span class="sd">            - angles: The corresponding angles for each box with shape [batch, max_detections].</span>
+</span><span id="MulticlassNMSOBB-142"><a href="#MulticlassNMSOBB-142"><span class="linenos">142</span></a><span class="sd">            - n_valid: The number of valid detections out of &#39;max_detections&#39; with shape [batch, 1].</span>
+</span><span id="MulticlassNMSOBB-143"><a href="#MulticlassNMSOBB-143"><span class="linenos">143</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="MulticlassNMSOBB-144"><a href="#MulticlassNMSOBB-144"><span class="linenos">144</span></a>        <span class="n">nms</span> <span class="o">=</span> <span class="n">multiclass_nms_obb</span><span class="p">(</span><span class="n">boxes</span><span class="o">=</span><span class="n">boxes</span><span class="p">,</span>
+</span><span id="MulticlassNMSOBB-145"><a href="#MulticlassNMSOBB-145"><span class="linenos">145</span></a>                                 <span class="n">scores</span><span class="o">=</span><span class="n">scores</span><span class="p">,</span>
+</span><span id="MulticlassNMSOBB-146"><a href="#MulticlassNMSOBB-146"><span class="linenos">146</span></a>                                 <span class="n">angles</span><span class="o">=</span><span class="n">angles</span><span class="p">,</span>
+</span><span id="MulticlassNMSOBB-147"><a href="#MulticlassNMSOBB-147"><span class="linenos">147</span></a>                                 <span class="n">score_threshold</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">score_threshold</span><span class="p">,</span>
+</span><span id="MulticlassNMSOBB-148"><a href="#MulticlassNMSOBB-148"><span class="linenos">148</span></a>                                 <span class="n">iou_threshold</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iou_threshold</span><span class="p">,</span>
+</span><span id="MulticlassNMSOBB-149"><a href="#MulticlassNMSOBB-149"><span class="linenos">149</span></a>                                 <span class="n">max_detections</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_detections</span><span class="p">)</span>
+</span><span id="MulticlassNMSOBB-150"><a href="#MulticlassNMSOBB-150"><span class="linenos">150</span></a>        <span class="k">return</span> <span class="n">nms</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>A torch.nn.Module for multiclass NMS for oriented bounding box. See multiclass_nms_obb for additional information.</p>
+
+<h6 id="usage-example">Usage example:</h6>
+
+<blockquote>
+  <p>batch size=1, 1000 boxes, 50 classes
+  boxes = torch.rand(1, 1000, 4)
+  scores = torch.rand(1, 1000, 50)
+  angles = torch.rand(1, 1000, 1)
+  nms_obb = MulticlassNMSOBB(score_threshold=0.1,
+                             iou_threshold=0.6
+                             max_detections=300)
+  res = nms_obb(boxes, scores, angles)</p>
+</blockquote>
+</div>
+
+
+                            <div id="MulticlassNMSOBB.__init__" class="classattr">
+                                        <input id="MulticlassNMSOBB.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="name">MulticlassNMSOBB</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">score_threshold</span><span class="p">:</span> <span class="nb">float</span>, </span><span class="param"><span class="n">iou_threshold</span><span class="p">:</span> <span class="nb">float</span>, </span><span class="param"><span class="n">max_detections</span><span class="p">:</span> <span class="nb">int</span></span>)</span>
+
+                <label class="view-source-button" for="MulticlassNMSOBB.__init__-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#MulticlassNMSOBB.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MulticlassNMSOBB.__init__-117"><a href="#MulticlassNMSOBB.__init__-117"><span class="linenos">117</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">score_threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">iou_threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">max_detections</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="MulticlassNMSOBB.__init__-118"><a href="#MulticlassNMSOBB.__init__-118"><span class="linenos">118</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MulticlassNMSOBB.__init__-119"><a href="#MulticlassNMSOBB.__init__-119"><span class="linenos">119</span></a><span class="sd">        Args:</span>
+</span><span id="MulticlassNMSOBB.__init__-120"><a href="#MulticlassNMSOBB.__init__-120"><span class="linenos">120</span></a><span class="sd">            score_threshold (float): The score threshold. Candidates with scores below the threshold are discarded.</span>
+</span><span id="MulticlassNMSOBB.__init__-121"><a href="#MulticlassNMSOBB.__init__-121"><span class="linenos">121</span></a><span class="sd">            iou_threshold (float): The Intersection Over Union (IOU) threshold for boxes overlap.</span>
+</span><span id="MulticlassNMSOBB.__init__-122"><a href="#MulticlassNMSOBB.__init__-122"><span class="linenos">122</span></a><span class="sd">            max_detections (int): The number of detections to return.</span>
+</span><span id="MulticlassNMSOBB.__init__-123"><a href="#MulticlassNMSOBB.__init__-123"><span class="linenos">123</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="MulticlassNMSOBB.__init__-124"><a href="#MulticlassNMSOBB.__init__-124"><span class="linenos">124</span></a>        <span class="nb">super</span><span class="p">(</span><span class="n">MulticlassNMSOBB</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="MulticlassNMSOBB.__init__-125"><a href="#MulticlassNMSOBB.__init__-125"><span class="linenos">125</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">score_threshold</span> <span class="o">=</span> <span class="n">score_threshold</span>
+</span><span id="MulticlassNMSOBB.__init__-126"><a href="#MulticlassNMSOBB.__init__-126"><span class="linenos">126</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">iou_threshold</span> <span class="o">=</span> <span class="n">iou_threshold</span>
+</span><span id="MulticlassNMSOBB.__init__-127"><a href="#MulticlassNMSOBB.__init__-127"><span class="linenos">127</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">max_detections</span> <span class="o">=</span> <span class="n">max_detections</span>
+</span></pre></div>
+
+
+            <div class="docstring"><h6 id="arguments">Arguments:</h6>
+
+<ul>
+<li><strong>score_threshold (float):</strong>  The score threshold. Candidates with scores below the threshold are discarded.</li>
+<li><strong>iou_threshold (float):</strong>  The Intersection Over Union (IOU) threshold for boxes overlap.</li>
+<li><strong>max_detections (int):</strong>  The number of detections to return.</li>
+</ul>
+</div>
+
+
+                            </div>
+                            <div id="MulticlassNMSOBB.forward" class="classattr">
+                                        <input id="MulticlassNMSOBB.forward-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">forward</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">boxes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>,</span><span class="param">	<span class="n">scores</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>,</span><span class="param">	<span class="n">angles</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="MulticlassNMSOBB.forward-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#MulticlassNMSOBB.forward"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="MulticlassNMSOBB.forward-129"><a href="#MulticlassNMSOBB.forward-129"><span class="linenos">129</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">scores</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">angles</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+</span><span id="MulticlassNMSOBB.forward-130"><a href="#MulticlassNMSOBB.forward-130"><span class="linenos">130</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="MulticlassNMSOBB.forward-131"><a href="#MulticlassNMSOBB.forward-131"><span class="linenos">131</span></a><span class="sd">        Args:</span>
+</span><span id="MulticlassNMSOBB.forward-132"><a href="#MulticlassNMSOBB.forward-132"><span class="linenos">132</span></a><span class="sd">            boxes (Tensor): Input boxes with shape [batch, n_boxes, 4], specified in center coordinates, </span>
+</span><span id="MulticlassNMSOBB.forward-133"><a href="#MulticlassNMSOBB.forward-133"><span class="linenos">133</span></a><span class="sd">                            width and height (x_center, y_center, w, h).</span>
+</span><span id="MulticlassNMSOBB.forward-134"><a href="#MulticlassNMSOBB.forward-134"><span class="linenos">134</span></a><span class="sd">            scores (Tensor): Input scores with shape [batch, n_boxes, n_classes].</span>
+</span><span id="MulticlassNMSOBB.forward-135"><a href="#MulticlassNMSOBB.forward-135"><span class="linenos">135</span></a><span class="sd">            angles (Tensor): Input angles with shape [batch, n_boxes, 1].</span>
+</span><span id="MulticlassNMSOBB.forward-136"><a href="#MulticlassNMSOBB.forward-136"><span class="linenos">136</span></a>
+</span><span id="MulticlassNMSOBB.forward-137"><a href="#MulticlassNMSOBB.forward-137"><span class="linenos">137</span></a><span class="sd">        Returns: &#39;NMSOBBResults&#39; named tuple:</span>
+</span><span id="MulticlassNMSOBB.forward-138"><a href="#MulticlassNMSOBB.forward-138"><span class="linenos">138</span></a><span class="sd">            - boxes: The selected boxes with shape [batch, max_detections, 4].</span>
+</span><span id="MulticlassNMSOBB.forward-139"><a href="#MulticlassNMSOBB.forward-139"><span class="linenos">139</span></a><span class="sd">            - scores: The corresponding scores in descending order with shape [batch, max_detections].</span>
+</span><span id="MulticlassNMSOBB.forward-140"><a href="#MulticlassNMSOBB.forward-140"><span class="linenos">140</span></a><span class="sd">            - labels: The labels for each box with shape [batch, max_detections].</span>
+</span><span id="MulticlassNMSOBB.forward-141"><a href="#MulticlassNMSOBB.forward-141"><span class="linenos">141</span></a><span class="sd">            - angles: The corresponding angles for each box with shape [batch, max_detections].</span>
+</span><span id="MulticlassNMSOBB.forward-142"><a href="#MulticlassNMSOBB.forward-142"><span class="linenos">142</span></a><span class="sd">            - n_valid: The number of valid detections out of &#39;max_detections&#39; with shape [batch, 1].</span>
+</span><span id="MulticlassNMSOBB.forward-143"><a href="#MulticlassNMSOBB.forward-143"><span class="linenos">143</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="MulticlassNMSOBB.forward-144"><a href="#MulticlassNMSOBB.forward-144"><span class="linenos">144</span></a>        <span class="n">nms</span> <span class="o">=</span> <span class="n">multiclass_nms_obb</span><span class="p">(</span><span class="n">boxes</span><span class="o">=</span><span class="n">boxes</span><span class="p">,</span>
+</span><span id="MulticlassNMSOBB.forward-145"><a href="#MulticlassNMSOBB.forward-145"><span class="linenos">145</span></a>                                 <span class="n">scores</span><span class="o">=</span><span class="n">scores</span><span class="p">,</span>
+</span><span id="MulticlassNMSOBB.forward-146"><a href="#MulticlassNMSOBB.forward-146"><span class="linenos">146</span></a>                                 <span class="n">angles</span><span class="o">=</span><span class="n">angles</span><span class="p">,</span>
+</span><span id="MulticlassNMSOBB.forward-147"><a href="#MulticlassNMSOBB.forward-147"><span class="linenos">147</span></a>                                 <span class="n">score_threshold</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">score_threshold</span><span class="p">,</span>
+</span><span id="MulticlassNMSOBB.forward-148"><a href="#MulticlassNMSOBB.forward-148"><span class="linenos">148</span></a>                                 <span class="n">iou_threshold</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iou_threshold</span><span class="p">,</span>
+</span><span id="MulticlassNMSOBB.forward-149"><a href="#MulticlassNMSOBB.forward-149"><span class="linenos">149</span></a>                                 <span class="n">max_detections</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_detections</span><span class="p">)</span>
+</span><span id="MulticlassNMSOBB.forward-150"><a href="#MulticlassNMSOBB.forward-150"><span class="linenos">150</span></a>        <span class="k">return</span> <span class="n">nms</span>
+</span></pre></div>
+
+
+            <div class="docstring"><h6 id="arguments">Arguments:</h6>
+
+<ul>
+<li><strong>boxes (Tensor):</strong>  Input boxes with shape [batch, n_boxes, 4], specified in center coordinates, 
+width and height (x_center, y_center, w, h).</li>
+<li><strong>scores (Tensor):</strong>  Input scores with shape [batch, n_boxes, n_classes].</li>
+<li><strong>angles (Tensor):</strong>  Input angles with shape [batch, n_boxes, 1].</li>
+</ul>
+
+<p>Returns: 'NMSOBBResults' named tuple:
+    - boxes: The selected boxes with shape [batch, max_detections, 4].
+    - scores: The corresponding scores in descending order with shape [batch, max_detections].
+    - labels: The labels for each box with shape [batch, max_detections].
+    - angles: The corresponding angles for each box with shape [batch, max_detections].
+    - n_valid: The number of valid detections out of 'max_detections' with shape [batch, 1].</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="multiclass_nms_obb">
+                            <input id="multiclass_nms_obb-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">multiclass_nms_obb</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">boxes</span>,</span><span class="param">	<span class="n">scores</span>,</span><span class="param">	<span class="n">angles</span>,</span><span class="param">	<span class="n">score_threshold</span><span class="p">:</span> <span class="nb">float</span>,</span><span class="param">	<span class="n">iou_threshold</span><span class="p">:</span> <span class="nb">float</span>,</span><span class="param">	<span class="n">max_detections</span><span class="p">:</span> <span class="nb">int</span></span><span class="return-annotation">) -> <span class="n"><a href="#NMSOBBResults">NMSOBBResults</a></span>:</span></span>
+
+                <label class="view-source-button" for="multiclass_nms_obb-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#multiclass_nms_obb"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="multiclass_nms_obb-55"><a href="#multiclass_nms_obb-55"><span class="linenos">55</span></a><span class="k">def</span><span class="w"> </span><span class="nf">multiclass_nms_obb</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="n">score_threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">iou_threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">max_detections</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NMSOBBResults</span><span class="p">:</span>
+</span><span id="multiclass_nms_obb-56"><a href="#multiclass_nms_obb-56"><span class="linenos">56</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="multiclass_nms_obb-57"><a href="#multiclass_nms_obb-57"><span class="linenos">57</span></a><span class="sd">    Multi-class non-maximum suppression for oriented bounding box.</span>
+</span><span id="multiclass_nms_obb-58"><a href="#multiclass_nms_obb-58"><span class="linenos">58</span></a><span class="sd">    Detections are returned in descending order of their scores.</span>
+</span><span id="multiclass_nms_obb-59"><a href="#multiclass_nms_obb-59"><span class="linenos">59</span></a><span class="sd">    The output tensors always contain a fixed number of detections, as defined by &#39;max_detections&#39;.</span>
+</span><span id="multiclass_nms_obb-60"><a href="#multiclass_nms_obb-60"><span class="linenos">60</span></a><span class="sd">    If fewer detections are selected, the output tensors are zero-padded up to &#39;max_detections&#39;.</span>
+</span><span id="multiclass_nms_obb-61"><a href="#multiclass_nms_obb-61"><span class="linenos">61</span></a>
+</span><span id="multiclass_nms_obb-62"><a href="#multiclass_nms_obb-62"><span class="linenos">62</span></a><span class="sd">    Args:</span>
+</span><span id="multiclass_nms_obb-63"><a href="#multiclass_nms_obb-63"><span class="linenos">63</span></a><span class="sd">        boxes (Tensor): Input boxes with shape [batch, n_boxes, 4], specified in center coordinates, </span>
+</span><span id="multiclass_nms_obb-64"><a href="#multiclass_nms_obb-64"><span class="linenos">64</span></a><span class="sd">                        width and height (x_center, y_center, w, h).</span>
+</span><span id="multiclass_nms_obb-65"><a href="#multiclass_nms_obb-65"><span class="linenos">65</span></a><span class="sd">        scores (Tensor): Input scores with shape [batch, n_boxes, n_classes].</span>
+</span><span id="multiclass_nms_obb-66"><a href="#multiclass_nms_obb-66"><span class="linenos">66</span></a><span class="sd">        angles (Tensor): Input angles with shape [batch, n_boxes, 1].</span>
+</span><span id="multiclass_nms_obb-67"><a href="#multiclass_nms_obb-67"><span class="linenos">67</span></a><span class="sd">        score_threshold (float): The score threshold. Candidates with scores below the threshold are discarded.</span>
+</span><span id="multiclass_nms_obb-68"><a href="#multiclass_nms_obb-68"><span class="linenos">68</span></a><span class="sd">        iou_threshold (float): The Intersection Over Union (IOU) threshold for boxes overlap.</span>
+</span><span id="multiclass_nms_obb-69"><a href="#multiclass_nms_obb-69"><span class="linenos">69</span></a><span class="sd">        max_detections (int): The number of detections to return.</span>
+</span><span id="multiclass_nms_obb-70"><a href="#multiclass_nms_obb-70"><span class="linenos">70</span></a>
+</span><span id="multiclass_nms_obb-71"><a href="#multiclass_nms_obb-71"><span class="linenos">71</span></a><span class="sd">    Returns:</span>
+</span><span id="multiclass_nms_obb-72"><a href="#multiclass_nms_obb-72"><span class="linenos">72</span></a><span class="sd">        &#39;NMSOBBResults&#39; named tuple:</span>
+</span><span id="multiclass_nms_obb-73"><a href="#multiclass_nms_obb-73"><span class="linenos">73</span></a><span class="sd">        - boxes: The selected boxes with shape [batch, max_detections, 4].</span>
+</span><span id="multiclass_nms_obb-74"><a href="#multiclass_nms_obb-74"><span class="linenos">74</span></a><span class="sd">        - scores: The corresponding scores in descending order with shape [batch, max_detections].</span>
+</span><span id="multiclass_nms_obb-75"><a href="#multiclass_nms_obb-75"><span class="linenos">75</span></a><span class="sd">        - labels: The labels for each box with shape [batch, max_detections].</span>
+</span><span id="multiclass_nms_obb-76"><a href="#multiclass_nms_obb-76"><span class="linenos">76</span></a><span class="sd">        - angles: The corresponding angles for each box with shape [batch, max_detections].</span>
+</span><span id="multiclass_nms_obb-77"><a href="#multiclass_nms_obb-77"><span class="linenos">77</span></a><span class="sd">        - n_valid: The number of valid detections out of &#39;max_detections&#39; with shape [batch, 1].</span>
+</span><span id="multiclass_nms_obb-78"><a href="#multiclass_nms_obb-78"><span class="linenos">78</span></a>
+</span><span id="multiclass_nms_obb-79"><a href="#multiclass_nms_obb-79"><span class="linenos">79</span></a><span class="sd">    Raises:</span>
+</span><span id="multiclass_nms_obb-80"><a href="#multiclass_nms_obb-80"><span class="linenos">80</span></a><span class="sd">        ValueError: If provided with invalid arguments or input tensors with unexpected or non-matching shapes.</span>
+</span><span id="multiclass_nms_obb-81"><a href="#multiclass_nms_obb-81"><span class="linenos">81</span></a>
+</span><span id="multiclass_nms_obb-82"><a href="#multiclass_nms_obb-82"><span class="linenos">82</span></a><span class="sd">    Example:</span>
+</span><span id="multiclass_nms_obb-83"><a href="#multiclass_nms_obb-83"><span class="linenos">83</span></a><span class="sd">        ```</span>
+</span><span id="multiclass_nms_obb-84"><a href="#multiclass_nms_obb-84"><span class="linenos">84</span></a><span class="sd">        from edgemdt_cl.pytorch import multiclass_nms_obb</span>
+</span><span id="multiclass_nms_obb-85"><a href="#multiclass_nms_obb-85"><span class="linenos">85</span></a>
+</span><span id="multiclass_nms_obb-86"><a href="#multiclass_nms_obb-86"><span class="linenos">86</span></a><span class="sd">        # batch size=1, 1000 boxes, 50 classes</span>
+</span><span id="multiclass_nms_obb-87"><a href="#multiclass_nms_obb-87"><span class="linenos">87</span></a><span class="sd">        boxes = torch.rand(1, 1000, 4)</span>
+</span><span id="multiclass_nms_obb-88"><a href="#multiclass_nms_obb-88"><span class="linenos">88</span></a><span class="sd">        scores = torch.rand(1, 1000, 50)</span>
+</span><span id="multiclass_nms_obb-89"><a href="#multiclass_nms_obb-89"><span class="linenos">89</span></a><span class="sd">        angles = torch.rand(1, 1000, 1)</span>
+</span><span id="multiclass_nms_obb-90"><a href="#multiclass_nms_obb-90"><span class="linenos">90</span></a><span class="sd">        res = multiclass_nms_obb(boxes,</span>
+</span><span id="multiclass_nms_obb-91"><a href="#multiclass_nms_obb-91"><span class="linenos">91</span></a><span class="sd">                                 scores,</span>
+</span><span id="multiclass_nms_obb-92"><a href="#multiclass_nms_obb-92"><span class="linenos">92</span></a><span class="sd">                                 angles,</span>
+</span><span id="multiclass_nms_obb-93"><a href="#multiclass_nms_obb-93"><span class="linenos">93</span></a><span class="sd">                                 score_threshold=0.1,</span>
+</span><span id="multiclass_nms_obb-94"><a href="#multiclass_nms_obb-94"><span class="linenos">94</span></a><span class="sd">                                 iou_threshold=0.6,</span>
+</span><span id="multiclass_nms_obb-95"><a href="#multiclass_nms_obb-95"><span class="linenos">95</span></a><span class="sd">                                 max_detections=300)</span>
+</span><span id="multiclass_nms_obb-96"><a href="#multiclass_nms_obb-96"><span class="linenos">96</span></a><span class="sd">        # res.boxes, res.scores, res.labels, res.angles, res.n_valid</span>
+</span><span id="multiclass_nms_obb-97"><a href="#multiclass_nms_obb-97"><span class="linenos">97</span></a><span class="sd">        ```</span>
+</span><span id="multiclass_nms_obb-98"><a href="#multiclass_nms_obb-98"><span class="linenos">98</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="multiclass_nms_obb-99"><a href="#multiclass_nms_obb-99"><span class="linenos">99</span></a>    <span class="k">return</span> <span class="n">NMSOBBResults</span><span class="p">(</span><span class="o">*</span><span class="n">torch</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">edgemdt</span><span class="o">.</span><span class="n">multiclass_nms_obb</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="n">score_threshold</span><span class="p">,</span> <span class="n">iou_threshold</span><span class="p">,</span> <span class="n">max_detections</span><span class="p">))</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Multi-class non-maximum suppression for oriented bounding box.
+Detections are returned in descending order of their scores.
+The output tensors always contain a fixed number of detections, as defined by 'max_detections'.
+If fewer detections are selected, the output tensors are zero-padded up to 'max_detections'.</p>
+
+<h6 id="arguments">Arguments:</h6>
+
+<ul>
+<li><strong>boxes (Tensor):</strong>  Input boxes with shape [batch, n_boxes, 4], specified in center coordinates, 
+width and height (x_center, y_center, w, h).</li>
+<li><strong>scores (Tensor):</strong>  Input scores with shape [batch, n_boxes, n_classes].</li>
+<li><strong>angles (Tensor):</strong>  Input angles with shape [batch, n_boxes, 1].</li>
+<li><strong>score_threshold (float):</strong>  The score threshold. Candidates with scores below the threshold are discarded.</li>
+<li><strong>iou_threshold (float):</strong>  The Intersection Over Union (IOU) threshold for boxes overlap.</li>
+<li><strong>max_detections (int):</strong>  The number of detections to return.</li>
+</ul>
+
+<h6 id="returns">Returns:</h6>
+
+<blockquote>
+  <p>'NMSOBBResults' named tuple:</p>
+  
+  <ul>
+  <li>boxes: The selected boxes with shape [batch, max_detections, 4].</li>
+  <li>scores: The corresponding scores in descending order with shape [batch, max_detections].</li>
+  <li>labels: The labels for each box with shape [batch, max_detections].</li>
+  <li>angles: The corresponding angles for each box with shape [batch, max_detections].</li>
+  <li>n_valid: The number of valid detections out of 'max_detections' with shape [batch, 1].</li>
+  </ul>
+</blockquote>
+
+<h6 id="raises">Raises:</h6>
+
+<ul>
+<li><strong>ValueError:</strong>  If provided with invalid arguments or input tensors with unexpected or non-matching shapes.</li>
+</ul>
+
+<h6 id="example">Example:</h6>
+
+<blockquote>
+<pre><code>from <a href="">edgemdt_cl.pytorch</a> import multiclass_nms_obb
+
+# batch size=1, 1000 boxes, 50 classes
+boxes = torch.rand(1, 1000, 4)
+scores = torch.rand(1, 1000, 50)
+angles = torch.rand(1, 1000, 1)
+res = multiclass_nms_obb(boxes,
+                         scores,
+                         angles,
+                         score_threshold=0.1,
+                         iou_threshold=0.6,
+                         max_detections=300)
+# res.boxes, res.scores, res.labels, res.angles, res.n_valid
+</code></pre>
+</blockquote>
+</div>
+
+
+                </section>
+                <section id="NMSOBBResults">
+                            <input id="NMSOBBResults-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">NMSOBBResults</span><wbr>(<span class="base">typing.NamedTuple</span>):
+
+                <label class="view-source-button" for="NMSOBBResults-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#NMSOBBResults"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="NMSOBBResults-32"><a href="#NMSOBBResults-32"><span class="linenos">32</span></a><span class="k">class</span><span class="w"> </span><span class="nc">NMSOBBResults</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+</span><span id="NMSOBBResults-33"><a href="#NMSOBBResults-33"><span class="linenos">33</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot; Container for non-maximum suppression for oriented bounding box results &quot;&quot;&quot;</span>
+</span><span id="NMSOBBResults-34"><a href="#NMSOBBResults-34"><span class="linenos">34</span></a>    <span class="n">boxes</span><span class="p">:</span> <span class="n">Tensor</span>
+</span><span id="NMSOBBResults-35"><a href="#NMSOBBResults-35"><span class="linenos">35</span></a>    <span class="n">scores</span><span class="p">:</span> <span class="n">Tensor</span>
+</span><span id="NMSOBBResults-36"><a href="#NMSOBBResults-36"><span class="linenos">36</span></a>    <span class="n">labels</span><span class="p">:</span> <span class="n">Tensor</span>
+</span><span id="NMSOBBResults-37"><a href="#NMSOBBResults-37"><span class="linenos">37</span></a>    <span class="n">angles</span><span class="p">:</span> <span class="n">Tensor</span>
+</span><span id="NMSOBBResults-38"><a href="#NMSOBBResults-38"><span class="linenos">38</span></a>    <span class="n">n_valid</span><span class="p">:</span> <span class="n">Tensor</span>
+</span><span id="NMSOBBResults-39"><a href="#NMSOBBResults-39"><span class="linenos">39</span></a>
+</span><span id="NMSOBBResults-40"><a href="#NMSOBBResults-40"><span class="linenos">40</span></a>    <span class="c1"># Note: convenience methods below are replicated in each Results container, since NamedTuple supports neither adding</span>
+</span><span id="NMSOBBResults-41"><a href="#NMSOBBResults-41"><span class="linenos">41</span></a>    <span class="c1"># new fields in derived classes nor multiple inheritance, and we want it to behave like a tuple, so no dataclasses.</span>
+</span><span id="NMSOBBResults-42"><a href="#NMSOBBResults-42"><span class="linenos">42</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;NMSOBBResults&#39;</span><span class="p">:</span>
+</span><span id="NMSOBBResults-43"><a href="#NMSOBBResults-43"><span class="linenos">43</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot; Detach all tensors and return a new object &quot;&quot;&quot;</span>
+</span><span id="NMSOBBResults-44"><a href="#NMSOBBResults-44"><span class="linenos">44</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span>
+</span><span id="NMSOBBResults-45"><a href="#NMSOBBResults-45"><span class="linenos">45</span></a>
+</span><span id="NMSOBBResults-46"><a href="#NMSOBBResults-46"><span class="linenos">46</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">cpu</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;NMSOBBResults&#39;</span><span class="p">:</span>
+</span><span id="NMSOBBResults-47"><a href="#NMSOBBResults-47"><span class="linenos">47</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot; Move all tensors to cpu and return a new object &quot;&quot;&quot;</span>
+</span><span id="NMSOBBResults-48"><a href="#NMSOBBResults-48"><span class="linenos">48</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span>
+</span><span id="NMSOBBResults-49"><a href="#NMSOBBResults-49"><span class="linenos">49</span></a>
+</span><span id="NMSOBBResults-50"><a href="#NMSOBBResults-50"><span class="linenos">50</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s1">&#39;NMSOBBResults&#39;</span><span class="p">:</span>
+</span><span id="NMSOBBResults-51"><a href="#NMSOBBResults-51"><span class="linenos">51</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot; Apply any function to all tensors and return a new object &quot;&quot;&quot;</span>
+</span><span id="NMSOBBResults-52"><a href="#NMSOBBResults-52"><span class="linenos">52</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Container for non-maximum suppression for oriented bounding box results</p>
+</div>
+
+
+                            <div id="NMSOBBResults.__init__" class="classattr">
+                                <div class="attr function">
+            
+        <span class="name">NMSOBBResults</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">boxes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>,</span><span class="param">	<span class="n">scores</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>,</span><span class="param">	<span class="n">labels</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>,</span><span class="param">	<span class="n">angles</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>,</span><span class="param">	<span class="n">n_valid</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span></span>)</span>
+
+        
+    </div>
+    <a class="headerlink" href="#NMSOBBResults.__init__"></a>
+    
+            <div class="docstring"><p>Create new instance of NMSOBBResults(boxes, scores, labels, angles, n_valid)</p>
+</div>
+
+
+                            </div>
+                            <div id="NMSOBBResults.boxes" class="classattr">
+                                <div class="attr variable">
+            <span class="name">boxes</span><span class="annotation">: torch.Tensor</span>
+
+        
+    </div>
+    <a class="headerlink" href="#NMSOBBResults.boxes"></a>
+    
+            <div class="docstring"><p>Alias for field number 0</p>
+</div>
+
+
+                            </div>
+                            <div id="NMSOBBResults.scores" class="classattr">
+                                <div class="attr variable">
+            <span class="name">scores</span><span class="annotation">: torch.Tensor</span>
+
+        
+    </div>
+    <a class="headerlink" href="#NMSOBBResults.scores"></a>
+    
+            <div class="docstring"><p>Alias for field number 1</p>
+</div>
+
+
+                            </div>
+                            <div id="NMSOBBResults.labels" class="classattr">
+                                <div class="attr variable">
+            <span class="name">labels</span><span class="annotation">: torch.Tensor</span>
+
+        
+    </div>
+    <a class="headerlink" href="#NMSOBBResults.labels"></a>
+    
+            <div class="docstring"><p>Alias for field number 2</p>
+</div>
+
+
+                            </div>
+                            <div id="NMSOBBResults.angles" class="classattr">
+                                <div class="attr variable">
+            <span class="name">angles</span><span class="annotation">: torch.Tensor</span>
+
+        
+    </div>
+    <a class="headerlink" href="#NMSOBBResults.angles"></a>
+    
+            <div class="docstring"><p>Alias for field number 3</p>
+</div>
+
+
+                            </div>
+                            <div id="NMSOBBResults.n_valid" class="classattr">
+                                <div class="attr variable">
+            <span class="name">n_valid</span><span class="annotation">: torch.Tensor</span>
+
+        
+    </div>
+    <a class="headerlink" href="#NMSOBBResults.n_valid"></a>
+    
+            <div class="docstring"><p>Alias for field number 4</p>
+</div>
+
+
+                            </div>
+                            <div id="NMSOBBResults.detach" class="classattr">
+                                        <input id="NMSOBBResults.detach-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">detach</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n"><a href="#NMSOBBResults">NMSOBBResults</a></span>:</span></span>
+
+                <label class="view-source-button" for="NMSOBBResults.detach-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#NMSOBBResults.detach"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="NMSOBBResults.detach-42"><a href="#NMSOBBResults.detach-42"><span class="linenos">42</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">detach</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;NMSOBBResults&#39;</span><span class="p">:</span>
+</span><span id="NMSOBBResults.detach-43"><a href="#NMSOBBResults.detach-43"><span class="linenos">43</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot; Detach all tensors and return a new object &quot;&quot;&quot;</span>
+</span><span id="NMSOBBResults.detach-44"><a href="#NMSOBBResults.detach-44"><span class="linenos">44</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Detach all tensors and return a new object</p>
+</div>
+
+
+                            </div>
+                            <div id="NMSOBBResults.cpu" class="classattr">
+                                        <input id="NMSOBBResults.cpu-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">cpu</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="n"><a href="#NMSOBBResults">NMSOBBResults</a></span>:</span></span>
+
+                <label class="view-source-button" for="NMSOBBResults.cpu-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#NMSOBBResults.cpu"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="NMSOBBResults.cpu-46"><a href="#NMSOBBResults.cpu-46"><span class="linenos">46</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">cpu</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;NMSOBBResults&#39;</span><span class="p">:</span>
+</span><span id="NMSOBBResults.cpu-47"><a href="#NMSOBBResults.cpu-47"><span class="linenos">47</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot; Move all tensors to cpu and return a new object &quot;&quot;&quot;</span>
+</span><span id="NMSOBBResults.cpu-48"><a href="#NMSOBBResults.cpu-48"><span class="linenos">48</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Move all tensors to cpu and return a new object</p>
+</div>
+
+
+                            </div>
+                            <div id="NMSOBBResults.apply" class="classattr">
+                                        <input id="NMSOBBResults.apply-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">apply</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">f</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span></span><span class="return-annotation">) -> <span class="n"><a href="#NMSOBBResults">NMSOBBResults</a></span>:</span></span>
+
+                <label class="view-source-button" for="NMSOBBResults.apply-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#NMSOBBResults.apply"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="NMSOBBResults.apply-50"><a href="#NMSOBBResults.apply-50"><span class="linenos">50</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s1">&#39;NMSOBBResults&#39;</span><span class="p">:</span>
+</span><span id="NMSOBBResults.apply-51"><a href="#NMSOBBResults.apply-51"><span class="linenos">51</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot; Apply any function to all tensors and return a new object &quot;&quot;&quot;</span>
+</span><span id="NMSOBBResults.apply-52"><a href="#NMSOBBResults.apply-52"><span class="linenos">52</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Apply any function to all tensors and return a new object</p>
 </div>
 
 
