@@ -31,7 +31,7 @@ validate_installed_libraries(required_libraries['torch'])
 from edgemdt_cl.pytorch.nms import (    # noqa: E402
     multiclass_nms, NMSResults, multiclass_nms_with_indices, NMSWithIndicesResults, MulticlassNMS,
     MulticlassNMSWithIndices)
-from edgemdt_cl.pytorch.nms_obb import multiclass_nms_obb, NMSOBBResults, MulticlassNMSOBB
+from edgemdt_cl.pytorch.nms_obb import multiclass_nms_obb, NMSOBBResults, MulticlassNMSOBB    # noqa: E402
 from edgemdt_cl.pytorch.box_decode import FasterRCNNBoxDecode    # noqa: E402
 
 
