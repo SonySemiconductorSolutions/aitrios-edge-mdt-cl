@@ -22,7 +22,6 @@ from edgemdt_cl.pytorch.custom_lib import register_op
 from .nms_obb_common import _batch_multiclass_nms_obb, SCORES, LABELS, ANGLES
 from edgemdt_cl.pytorch.custom_layer import CustomLayer
 
-
 MULTICLASS_NMSOBB_TORCH_OP = 'multiclass_nms_obb'
 
 __all__ = ['multiclass_nms_obb', 'NMSOBBResults', 'MulticlassNMSOBB']
@@ -51,7 +50,8 @@ class NMSOBBResults(NamedTuple):
         return self.__class__(*[f(t) for t in self])
 
 
-def multiclass_nms_obb(boxes, scores, angles, score_threshold: float, iou_threshold: float, max_detections: int) -> NMSOBBResults:
+def multiclass_nms_obb(boxes, scores, angles, score_threshold: float, iou_threshold: float,
+                       max_detections: int) -> NMSOBBResults:
     """
     Multi-class non-maximum suppression for oriented bounding box.
     Detections are returned in descending order of their scores.
@@ -95,7 +95,8 @@ def multiclass_nms_obb(boxes, scores, angles, score_threshold: float, iou_thresh
         # res.boxes, res.scores, res.labels, res.angles, res.n_valid
         ```
     """
-    return NMSOBBResults(*torch.ops.edgemdt.multiclass_nms_obb(boxes, scores, angles, score_threshold, iou_threshold, max_detections))
+    return NMSOBBResults(
+        *torch.ops.edgemdt.multiclass_nms_obb(boxes, scores, angles, score_threshold, iou_threshold, max_detections))
 
 
 class MulticlassNMSOBB(CustomLayer):
@@ -154,8 +155,8 @@ class MulticlassNMSOBB(CustomLayer):
 ######################
 
 
-def _multiclass_nms_obb_impl(boxes: torch.Tensor, scores: torch.Tensor, angles: torch.Tensor, 
-                             score_threshold: float, iou_threshold: float, max_detections: int) -> NMSOBBResults:
+def _multiclass_nms_obb_impl(boxes: torch.Tensor, scores: torch.Tensor, angles: torch.Tensor, score_threshold: float,
+                             iou_threshold: float, max_detections: int) -> NMSOBBResults:
     """ This implementation is intended only to be registered as custom torch and onnxruntime op.
         NamedTuple is used for clarity, it is not preserved when run through torch / onnxruntime op. """
     res, valid_dets = _batch_multiclass_nms_obb(boxes,
@@ -164,7 +165,7 @@ def _multiclass_nms_obb_impl(boxes: torch.Tensor, scores: torch.Tensor, angles: 
                                                 score_threshold=score_threshold,
                                                 iou_threshold=iou_threshold,
                                                 max_detections=max_detections)
-    
+
     return NMSOBBResults(boxes=res[..., :4],
                          scores=res[..., SCORES],
                          labels=res[..., LABELS].to(torch.int64),
@@ -172,8 +173,9 @@ def _multiclass_nms_obb_impl(boxes: torch.Tensor, scores: torch.Tensor, angles: 
                          n_valid=valid_dets.to(torch.int64))
 
 
-schema = (MULTICLASS_NMSOBB_TORCH_OP +
-          "(Tensor boxes, Tensor scores, Tensor angles, float score_threshold, float iou_threshold, SymInt max_detections) "
-          "-> (Tensor, Tensor, Tensor, Tensor, Tensor)")
+schema = (
+    MULTICLASS_NMSOBB_TORCH_OP +
+    "(Tensor boxes, Tensor scores, Tensor angles, float score_threshold, float iou_threshold, SymInt max_detections) "
+    "-> (Tensor, Tensor, Tensor, Tensor, Tensor)")
 
 register_op(MULTICLASS_NMSOBB_TORCH_OP, schema, _multiclass_nms_obb_impl)

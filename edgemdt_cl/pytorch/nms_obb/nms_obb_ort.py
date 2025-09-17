@@ -21,7 +21,10 @@ from .nms_obb_onnx import MULTICLASS_NMSOBB_ONNX_OP
 
 @onnx_op(op_type=MULTICLASS_NMSOBB_ONNX_OP,
          inputs=[PyCustomOpDef.dt_float, PyCustomOpDef.dt_float, PyCustomOpDef.dt_float],
-         outputs=[PyCustomOpDef.dt_float, PyCustomOpDef.dt_float, PyCustomOpDef.dt_int32, PyCustomOpDef.dt_float, PyCustomOpDef.dt_int32],
+         outputs=[
+             PyCustomOpDef.dt_float, PyCustomOpDef.dt_float, PyCustomOpDef.dt_int32, PyCustomOpDef.dt_float,
+             PyCustomOpDef.dt_int32
+         ],
          attrs={
              "score_threshold": PyCustomOpDef.dt_float,
              "iou_threshold": PyCustomOpDef.dt_float,

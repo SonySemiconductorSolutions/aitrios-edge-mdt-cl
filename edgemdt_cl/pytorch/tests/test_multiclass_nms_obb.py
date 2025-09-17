@@ -42,7 +42,12 @@ class TestMultiClassNMSOBB:
         mock = mocker.patch('edgemdt_cl.pytorch.nms_obb.nms_obb._batch_multiclass_nms_obb',
                             self._batch_multiclass_nms_obb_mock(batch=3, n_dets=5))
         boxes, scores, angles = generate_random_inputs_obb(batch=3, n_boxes=10, n_classes=5)
-        ret = torch.ops.edgemdt.multiclass_nms_obb(boxes, scores, angles, score_threshold=0.1, iou_threshold=0.6, max_detections=5)
+        ret = torch.ops.edgemdt.multiclass_nms_obb(boxes,
+                                                   scores,
+                                                   angles,
+                                                   score_threshold=0.1,
+                                                   iou_threshold=0.6,
+                                                   max_detections=5)
         assert torch.equal(mock.call_args.args[0], boxes)
         assert torch.equal(mock.call_args.args[1], scores)
         assert torch.equal(mock.call_args.args[2], angles)
@@ -70,7 +75,12 @@ class TestMultiClassNMSOBB:
         assert torch.equal(mock.call_args.args[2], angles)
         assert mock.call_args.kwargs == dict(score_threshold=0.1, iou_threshold=0.6, max_detections=5)
 
-        ref_ret = torch.ops.edgemdt.multiclass_nms_obb(boxes, scores, angles, score_threshold=0.1, iou_threshold=0.6, max_detections=5)
+        ref_ret = torch.ops.edgemdt.multiclass_nms_obb(boxes,
+                                                       scores,
+                                                       angles,
+                                                       score_threshold=0.1,
+                                                       iou_threshold=0.6,
+                                                       max_detections=5)
         assert isinstance(ret, NMSOBBResults)
 
         assert torch.equal(ret.boxes, ref_ret[0])
@@ -134,15 +144,21 @@ class TestMultiClassNMSOBB:
         assert len(nms_node.input) == 3
         assert len(nms_node.output) == 5
 
-        check_tensor(onnx_model.graph.input[0], [10, 4], torch.onnx.TensorProtoDataType.FLOAT, dynamic_batch) # boxes
-        check_tensor(onnx_model.graph.input[1], [10, 5], torch.onnx.TensorProtoDataType.FLOAT, dynamic_batch) # scores
-        check_tensor(onnx_model.graph.input[2], [10, 1], torch.onnx.TensorProtoDataType.FLOAT, dynamic_batch) # angles
+        check_tensor(onnx_model.graph.input[0], [10, 4], torch.onnx.TensorProtoDataType.FLOAT, dynamic_batch)    # boxes
+        check_tensor(onnx_model.graph.input[1], [10, 5], torch.onnx.TensorProtoDataType.FLOAT,
+                     dynamic_batch)    # scores
+        check_tensor(onnx_model.graph.input[2], [10, 1], torch.onnx.TensorProtoDataType.FLOAT,
+                     dynamic_batch)    # angles
         # test shape inference that is defined as part of onnx op
-        check_tensor(onnx_model.graph.output[0], [max_dets, 4], torch.onnx.TensorProtoDataType.FLOAT, dynamic_batch) # boxes
-        check_tensor(onnx_model.graph.output[1], [max_dets], torch.onnx.TensorProtoDataType.FLOAT, dynamic_batch) # scores
-        check_tensor(onnx_model.graph.output[2], [max_dets], torch.onnx.TensorProtoDataType.INT32, dynamic_batch) # labels
-        check_tensor(onnx_model.graph.output[3], [max_dets], torch.onnx.TensorProtoDataType.FLOAT, dynamic_batch) # angles
-        check_tensor(onnx_model.graph.output[4], [1], torch.onnx.TensorProtoDataType.INT32, dynamic_batch) # n_valid
+        check_tensor(onnx_model.graph.output[0], [max_dets, 4], torch.onnx.TensorProtoDataType.FLOAT,
+                     dynamic_batch)    # boxes
+        check_tensor(onnx_model.graph.output[1], [max_dets], torch.onnx.TensorProtoDataType.FLOAT,
+                     dynamic_batch)    # scores
+        check_tensor(onnx_model.graph.output[2], [max_dets], torch.onnx.TensorProtoDataType.INT32,
+                     dynamic_batch)    # labels
+        check_tensor(onnx_model.graph.output[3], [max_dets], torch.onnx.TensorProtoDataType.FLOAT,
+                     dynamic_batch)    # angles
+        check_tensor(onnx_model.graph.output[4], [1], torch.onnx.TensorProtoDataType.INT32, dynamic_batch)    # n_valid
 
     @pytest.mark.parametrize('dynamic_batch', [True, False])
     def test_ort(self, dynamic_batch, tmpdir_factory):
@@ -157,7 +173,12 @@ class TestMultiClassNMSOBB:
         torch_res = model(boxes, scores, angles)
         so = load_custom_ops()
         session = ort.InferenceSession(path, sess_options=so)
-        ort_res = session.run(output_names=None, input_feed={'boxes': boxes.numpy(), 'scores': scores.numpy(), 'angles': angles.numpy()})
+        ort_res = session.run(output_names=None,
+                              input_feed={
+                                  'boxes': boxes.numpy(),
+                                  'scores': scores.numpy(),
+                                  'angles': angles.numpy()
+                              })
         # this is just a sanity test on random data
         for i in range(len(torch_res)):
             assert np.allclose(torch_res[i], ort_res[i])
@@ -182,7 +203,8 @@ ort_res = session.run(output_names=None, input_feed={{'boxes': boxes, 'scores': 
 
         kwargs = {'dynamic_axes': {k: {0: 'batch'} for k in input_names + output_names}} if dynamic_batch else {}
         torch.onnx.export(nms_model,
-                          args=(torch.ones(1, n_boxes, 4), torch.ones(1, n_boxes, n_classes), torch.ones(1, n_boxes, 1)),
+                          args=(torch.ones(1, n_boxes, 4), torch.ones(1, n_boxes, n_classes), torch.ones(1, n_boxes,
+                                                                                                         1)),
                           f=path,
                           input_names=input_names,
                           output_names=output_names,
@@ -231,15 +253,15 @@ class TestMultiClassNMSOBBE2E:
 
     def test_multiclass_nms_obb(self):
         self.setup()
-        ret = multiclass_nms_obb(self.boxes, 
-                                 self.scores, 
-                                 self.angles, 
+        ret = multiclass_nms_obb(self.boxes,
+                                 self.scores,
+                                 self.angles,
                                  score_threshold=self.score_threshold,
                                  iou_threshold=self.iou_threshold,
                                  max_detections=self.max_detections)
-        
+
         assert isinstance(ret, NMSOBBResults)
-        
+
         # check for boxes
         assert ret.boxes.shape == (1, self.max_detections, 4)
         assert ret.boxes.dtype == torch.float32
@@ -271,9 +293,9 @@ class TestMultiClassNMSOBBE2E:
                                    iou_threshold=self.iou_threshold,
                                    max_detections=self.max_detections)
         ret = nms_obb(self.boxes, self.scores, self.angles)
-        
+
         assert isinstance(ret, NMSOBBResults)
-        
+
         # check for boxes
         assert ret.boxes.shape == (1, self.max_detections, 4)
         assert ret.boxes.dtype == torch.float32

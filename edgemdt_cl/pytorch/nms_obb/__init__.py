@@ -18,6 +18,4 @@ from .nms_obb import multiclass_nms_obb, NMSOBBResults, MulticlassNMSOBB
 # trigger onnx op registration
 from . import nms_obb_onnx
 
-__all__ = [
-    'multiclass_nms_obb', 'NMSOBBResults', 'MulticlassNMSOBB'
-]
+__all__ = ['multiclass_nms_obb', 'NMSOBBResults', 'MulticlassNMSOBB']

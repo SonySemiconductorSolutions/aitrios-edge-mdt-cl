@@ -25,8 +25,9 @@ ANGLES = 6
 INDICES = 7
 
 
-def _batch_multiclass_nms_obb(boxes: Union[Tensor, np.ndarray], scores: Union[Tensor, np.ndarray], angles: Union[Tensor, np.ndarray], 
-                              score_threshold: float, iou_threshold: float, max_detections: int) -> Tuple[Tensor, Tensor]:
+def _batch_multiclass_nms_obb(boxes: Union[Tensor, np.ndarray], scores: Union[Tensor, np.ndarray],
+                              angles: Union[Tensor, np.ndarray], score_threshold: float, iou_threshold: float,
+                              max_detections: int) -> Tuple[Tensor, Tensor]:
     """
     Performs multi-class non-maximum suppression for oriented bounding box on a batch of images
 
@@ -83,8 +84,8 @@ def _batch_multiclass_nms_obb(boxes: Union[Tensor, np.ndarray], scores: Union[Te
     return results, valid_dets
 
 
-def _image_multiclass_nms_obb(boxes: Tensor, scores: Tensor, angles: Tensor,
-                              score_threshold: float, iou_threshold: float, max_detections: int) -> Tuple[Tensor, int]:
+def _image_multiclass_nms_obb(boxes: Tensor, scores: Tensor, angles: Tensor, score_threshold: float,
+                              iou_threshold: float, max_detections: int) -> Tuple[Tensor, int]:
     """
     Performs multi-class non-maximum suppression for oriented bounding box on a single image.
     This algorithm is referenced in https://arxiv.org/pdf/2106.06072v1.pdf.
@@ -107,7 +108,7 @@ def _image_multiclass_nms_obb(boxes: Tensor, scores: Tensor, angles: Tensor,
 
     """
     score_th_idx = scores.amax(1) > score_threshold
-    
+
     boxes = boxes[score_th_idx]
     scores = scores[score_th_idx]
     angles = angles[score_th_idx]
@@ -173,10 +174,11 @@ def _calc_iou(boxes: Tensor, angles: Tensor, iou_threshold: float) -> Tensor:
     b2 = b1.view(1, -1)
     c2 = c1.view(1, -1)
 
-    top_B1 = (a1 + a2) * (cy1 - cy2).pow(2) + (b1 + b2) * (cx1 - cx2).pow(2) + 2.0 * (c1 + c2) * (cx2 - cx1) * (cy1 - cy2)
+    top_B1 = (a1 + a2) * (cy1 - cy2).pow(2) + (b1 + b2) * (cx1 - cx2).pow(2) + 2.0 * (c1 + c2) * (cx2 - cx1) * (cy1 -
+                                                                                                                cy2)
     bot_B1 = 4.0 * ((a1 + a2) * (b1 + b2) - (c1 + c2).pow(2) + eps)
     B1 = top_B1 / bot_B1
-    
+
     top_B2 = (a1 + a2) * (b1 + b2) - (c1 + c2).pow(2)
     bot_B2 = 4.0 * ((a1 * b1 - c1.pow(2)).clamp_(0) * (a2 * b2 - c2.pow(2)).clamp_(0)).sqrt() + eps
     B2 = (top_B2 / bot_B2).log() / 2.0

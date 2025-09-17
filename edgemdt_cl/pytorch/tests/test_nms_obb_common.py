@@ -40,7 +40,7 @@ class TestNMSOBBCommon:
 
     @pytest.mark.parametrize('max_detections', [3, 6, 10])
     def test_image_multiclass_nms_obb(self, max_detections):
-        
+
         boxes = Tensor([[10, 10, 4, 3],
                         [10.5, 10, 4.5, 2.5],
                         [20, 20, 1, 5],
@@ -65,12 +65,12 @@ class TestNMSOBBCommon:
         score_threshold = 0.1
         iou_threshold = 0.6
 
-        ret, ret_valid_dets = nms_obb_common._image_multiclass_nms_obb(boxes, 
-                                                                       scores, 
-                                                                       angles, 
+        ret, ret_valid_dets = nms_obb_common._image_multiclass_nms_obb(boxes,
+                                                                       scores,
+                                                                       angles,
                                                                        score_threshold=score_threshold,
                                                                        iou_threshold=iou_threshold,
-                                                                       max_detections=max_detections)              
+                                                                       max_detections=max_detections)
         assert ret.shape == (max_detections, 8)
         exp_valid_dets = min(6, max_detections)
 

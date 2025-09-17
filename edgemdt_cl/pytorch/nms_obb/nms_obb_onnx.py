@@ -44,4 +44,7 @@ def multiclass_nms_obb_onnx(g, boxes, scores, angles, score_threshold, iou_thres
     outputs[4].setType(output_int_type.with_sizes([batch, 1]))
     return outputs
 
-torch.onnx.register_custom_op_symbolic(get_op_qualname(MULTICLASS_NMSOBB_TORCH_OP), multiclass_nms_obb_onnx, opset_version=1)
+
+torch.onnx.register_custom_op_symbolic(get_op_qualname(MULTICLASS_NMSOBB_TORCH_OP),
+                                       multiclass_nms_obb_onnx,
+                                       opset_version=1)

@@ -24,7 +24,8 @@ if TYPE_CHECKING:
 
 __all__ = [
     'multiclass_nms', 'NMSResults', 'multiclass_nms_with_indices', 'NMSWithIndicesResults', 'FasterRCNNBoxDecode',
-    'load_custom_ops', 'MulticlassNMS', 'MulticlassNMSWithIndices', 'MulticlassNMSOBB', 'multiclass_nms_obb', 'NMSOBBResults', 'CustomLayer'
+    'load_custom_ops', 'MulticlassNMS', 'MulticlassNMSWithIndices', 'MulticlassNMSOBB', 'multiclass_nms_obb',
+    'NMSOBBResults', 'CustomLayer'
 ]
 
 validate_installed_libraries(required_libraries['torch'])
