@@ -40,7 +40,8 @@ def _batch_multiclass_nms_obb(boxes: Union[Tensor, np.ndarray], scores: Union[Te
 
     Returns:
         A tuple of two tensors:
-        - results: A tensor of shape [batch, max_detections, 8] containing the results of multiclass nms for oriented bounding box.
+        - results: A tensor of shape [batch, max_detections, 8]
+                   containing the results of multiclass nms for oriented bounding box.
         - valid_dets: A tensor of shape [batch, 1] containing the number of valid detections.
 
     """
