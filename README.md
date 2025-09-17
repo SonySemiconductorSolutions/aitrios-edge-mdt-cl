@@ -38,10 +38,6 @@ pip install edge-mdt-cl[torch]
 
 | **Tested FW versions** | **Tested Python version** | **Serialization** |
 |------------------------|---------------------------|-------------------|
-| 2.10                   | 3.9-3.10                  | .h5               |
-| 2.11                   | 3.9-3.10                  | .h5               |
-| 2.12                   | 3.9-3.11                  | .h5  .keras       |
-| 2.13                   | 3.9-3.11                  | .keras            |
 | 2.14                   | 3.9-3.11                  | .keras            |
 | 2.15                   | 3.9-3.11                  | .keras            |
 
@@ -49,7 +45,7 @@ pip install edge-mdt-cl[torch]
 
 | **Tested FW versions**                                                                                                   | **Tested Python version** | **Serialization**              |
 |--------------------------------------------------------------------------------------------------------------------------|---------------------------|--------------------------------|
-| torch 2.0-2.4<br/>torchvision 0.15-0.19<br/>onnxruntime 1.15-1.19<br/>onnxruntime_extensions 0.8-0.12<br/>onnx 1.14-1.16 | 3.9-3.12                  | .onnx (via torch.onnx.export)  |
+| torch 2.3-2.6<br/>torchvision 0.18-0.21<br/>onnxruntime 1.15-1.21<br/>onnxruntime_extensions 0.8-0.13<br/>onnx 1.14-1.17 | 3.9-3.12                  | .onnx (via torch.onnx.export)  |
 
 ## API
 For edge-mdt-cl API see https://sonysemiconductorsolutions.github.io/aitrios-edge-mdt-cl

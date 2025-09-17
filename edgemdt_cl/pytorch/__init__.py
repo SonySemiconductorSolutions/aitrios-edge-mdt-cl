@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-# Copyright 2024 Sony Semiconductor Israel, Inc. All rights reserved.
+# Copyright 2025 Sony Semiconductor Solutions, Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,13 +24,14 @@ if TYPE_CHECKING:
 
 __all__ = [
     'multiclass_nms', 'NMSResults', 'multiclass_nms_with_indices', 'NMSWithIndicesResults', 'FasterRCNNBoxDecode',
-    'load_custom_ops', 'MulticlassNMS', 'MulticlassNMSWithIndices', 'CustomLayer'
+    'load_custom_ops', 'MulticlassNMS', 'MulticlassNMSWithIndices', 'MulticlassNMSOBB', 'multiclass_nms_obb', 'NMSOBBResults', 'CustomLayer'
 ]
 
 validate_installed_libraries(required_libraries['torch'])
 from edgemdt_cl.pytorch.nms import (    # noqa: E402
     multiclass_nms, NMSResults, multiclass_nms_with_indices, NMSWithIndicesResults, MulticlassNMS,
     MulticlassNMSWithIndices)
+from edgemdt_cl.pytorch.nms_obb import multiclass_nms_obb, NMSOBBResults, MulticlassNMSOBB
 from edgemdt_cl.pytorch.box_decode import FasterRCNNBoxDecode    # noqa: E402
 
 
@@ -63,6 +64,7 @@ def load_custom_ops(ort_session_ops: Optional['ort.SessionOptions'] = None) -> '
 
     # trigger onnxruntime op registration
     from .nms import nms_ort
+    from .nms_obb import nms_obb_ort
     from .box_decode import box_decode_ort
 
     from onnxruntime_extensions import get_library_path
