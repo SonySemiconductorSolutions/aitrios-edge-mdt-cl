@@ -39,7 +39,7 @@ class TestMultiClassNMSOBB:
         return Mock(return_value=(ret, n_valid))
 
     def test_torch_op(self, mocker):
-        mock = mocker.patch(f'edgemdt_cl.pytorch.nms_obb.nms_obb._batch_multiclass_nms_obb',
+        mock = mocker.patch('edgemdt_cl.pytorch.nms_obb.nms_obb._batch_multiclass_nms_obb',
                             self._batch_multiclass_nms_obb_mock(batch=3, n_dets=5))
         boxes, scores, angles = generate_random_inputs_obb(batch=3, n_boxes=10, n_classes=5)
         ret = torch.ops.edgemdt.multiclass_nms_obb(boxes, scores, angles, score_threshold=0.1, iou_threshold=0.6, max_detections=5)
@@ -61,7 +61,7 @@ class TestMultiClassNMSOBB:
         assert len(ret) == 5
 
     def test_torch_op_wrapper(self, mocker):
-        mock = mocker.patch(f'edgemdt_cl.pytorch.nms_obb.nms_obb._batch_multiclass_nms_obb',
+        mock = mocker.patch('edgemdt_cl.pytorch.nms_obb.nms_obb._batch_multiclass_nms_obb',
                             self._batch_multiclass_nms_obb_mock(batch=3, n_dets=5))
         boxes, scores, angles = generate_random_inputs_obb(batch=3, n_boxes=20, n_classes=10)
         ret = multiclass_nms_obb(boxes, scores, angles, score_threshold=0.1, iou_threshold=0.6, max_detections=5)
@@ -116,7 +116,7 @@ class TestMultiClassNMSOBB:
 
         onnx_model = MulticlassNMSOBB(score_thresh, iou_thresh, max_dets)
 
-        path = str(tmpdir_factory.mktemp('nms_obb').join(f'nms_obb.onnx'))
+        path = str(tmpdir_factory.mktemp('nms_obb').join('nms_obb.onnx'))
         self._export_onnx(onnx_model, n_boxes, n_classes, path, dynamic_batch=dynamic_batch)
 
         onnx_model = load_and_validate_onnx_model(path, exp_opset=1)
@@ -149,7 +149,7 @@ class TestMultiClassNMSOBB:
         model = MulticlassNMSOBB(score_threshold=0.5, iou_threshold=0.3, max_detections=1000)
         n_boxes = 500
         n_classes = 20
-        path = str(tmpdir_factory.mktemp('nms_obb').join(f'nms_obb.onnx'))
+        path = str(tmpdir_factory.mktemp('nms_obb').join('nms_obb.onnx'))
         self._export_onnx(model, n_boxes, n_classes, path, dynamic_batch)
 
         batch = 5 if dynamic_batch else 1

@@ -59,7 +59,7 @@ def multiclass_nms_obb(boxes, scores, angles, score_threshold: float, iou_thresh
     If fewer detections are selected, the output tensors are zero-padded up to 'max_detections'.
 
     Args:
-        boxes (Tensor): Input boxes with shape [batch, n_boxes, 4], specified in center coordinates, 
+        boxes (Tensor): Input boxes with shape [batch, n_boxes, 4], specified in center coordinates,
                         width and height (x_center, y_center, w, h).
         scores (Tensor): Input scores with shape [batch, n_boxes, n_classes].
         angles (Tensor): Input angles with shape [batch, n_boxes, 1].
@@ -128,7 +128,7 @@ class MulticlassNMSOBB(CustomLayer):
     def forward(self, boxes: torch.Tensor, scores: torch.Tensor, angles: torch.Tensor):
         """
         Args:
-            boxes (Tensor): Input boxes with shape [batch, n_boxes, 4], specified in center coordinates, 
+            boxes (Tensor): Input boxes with shape [batch, n_boxes, 4], specified in center coordinates,
                             width and height (x_center, y_center, w, h).
             scores (Tensor): Input scores with shape [batch, n_boxes, n_classes].
             angles (Tensor): Input angles with shape [batch, n_boxes, 1].

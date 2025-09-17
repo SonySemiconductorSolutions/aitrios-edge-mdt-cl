@@ -155,7 +155,7 @@ def _calc_iou(boxes: Tensor, angles: Tensor, iou_threshold: float) -> Tensor:
         boxes: input boxes of shape [n_boxes, 4]
         angles: input angles of shape [n_boxes, 1]
         iou_threshold: intersection over union threshold
-        
+
     Returns:
         A tensor 'ious_th_idx' represents the indices of boxes to keep.
     """
