@@ -1,8 +1,8 @@
 # -------------------------------------------------------------------------------
-# (c) Copyright 2023 Sony Semiconductor Solutions, Ltd. All rights reserved.
+# (c) Copyright 2023 Sony Semiconductor Solutions, Inc. All rights reserved.
 #
 #      This software, in source or object form (the "Software"), is the
-#      property of Sony Semiconductor Solutions Ltd. (the "Company") and/or its
+#      property of Sony Semiconductor Solutions Inc. (the "Company") and/or its
 #      licensors, which have all right, title and interest therein, You
 #      may use the Software only in accordance with the terms of written
 #      license agreement between you and the Company (the "License").
