@@ -1,7 +1,7 @@
 name: Run CI Tests
 
 on:
-  push:
+  workflow_dispatch: # Allow manual triggers
   pull_request:
 
 concurrency:
