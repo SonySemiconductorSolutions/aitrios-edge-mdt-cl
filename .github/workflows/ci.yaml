@@ -1,7 +1,7 @@
 name: Run CI Tests
 
 on:
-  push:
+  workflow_dispatch: # Allow manual triggers
   pull_request:
 
 concurrency:
@@ -83,7 +83,7 @@ jobs:
         # * each remaining version is covered by at least one test
         # !!!NOTE!!! if newer versions are added, update edgemdt_cl.__init__ pinned_requirements
         py_ver: ["3.9", "3.10", "3.11", "3.12" ]
-        torch_ver: ["2.1", "2.2", "2.3", "2.4", "2.5", "2.6"]
+        torch_ver: ["2.3", "2.4", "2.5", "2.6"]
         ort_ver: ["1.15", "1.21"]
         ort_ext_ver: ["0.8", "0.13"]
         onnx_ver: ["1.14", "1.17"]
@@ -105,9 +105,6 @@ jobs:
             ort_ext_ver: "0.8"
           - torch_ver: "2.5"
             onnx_ver: "1.14"
-          # not support python 3.12
-          - py_ver: "3.12"
-            torch_ver: "2.1"
         include:
           # torchvision ver is coupled to a specific torch ver
           - torch_ver: "2.6"
@@ -118,10 +115,6 @@ jobs:
             torchvision_ver: "0.19"
           - torch_ver: "2.3"
             torchvision_ver: "0.18"
-          - torch_ver: "2.2"
-            torchvision_ver: "0.17"
-          - torch_ver: "2.1"
-            torchvision_ver: "0.16"
           # non-covered versions (ort, ort-ext, onnx)
           - py_ver: "3.11"
             torch_ver: "2.4"
@@ -135,12 +128,6 @@ jobs:
             ort_ver: "1.17"
             ort_ext_ver: "0.10"
             onnx_ver: "1.14"
-          - py_ver: "3.11"
-            torch_ver: "2.2"
-            torchvision_ver: "0.17"
-            ort_ver: "1.18"
-            ort_ext_ver: "0.11"
-            onnx_ver: "1.16"
 
     steps:
       - name: Checkout
@@ -151,9 +138,6 @@ jobs:
           python-version: ${{matrix.py_ver}}
       - name: Install dependencies # Extra requirement numpy<2 for older torch and onnx versions
         run: |
-          if [ ${{matrix.torch_ver}} == 2.1 ] || [ ${{matrix.torch_ver}} == 2.2 ];then
-             extra_req='numpy<2'
-          fi
           if [ ${{matrix.onnx_ver}} == 1.14 ] || [ ${{matrix.ort_ver}} == 1.15 ] || [ ${{matrix.ort_ext_ver}} == 0.8 ] || [ ${{matrix.ort_ext_ver}} == 0.9 ];then
              extra_req='numpy<2'
           fi
@@ -221,7 +205,6 @@ jobs:
 
       - name: Publish package pypi
         shell: bash
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
           pip install twine
           twine upload --repository pypi dist/* -u __token__ -p ${{ secrets.PYPI_KEY_DEV }}

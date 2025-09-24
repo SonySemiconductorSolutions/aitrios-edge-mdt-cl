@@ -6,11 +6,6 @@ on:
         type: string
         required: true
         description: "Release version (e.g. 1.2.3). Corresponding tag (v1.2.3) should already exist."
-      to_testpypi:
-        type: boolean
-        required: true
-        default: true
-        description: "Publish to testpypi."
 
 
 jobs:
@@ -49,13 +44,6 @@ jobs:
           python -m build --wheel
 
       - name: Publish package pypi
-        if: inputs.to_testpypi == false
         shell: bash
         run: |
           twine upload --repository pypi dist/* -u __token__ -p ${{ secrets.PYPI_API_KEY }}
-
-      - name: Publish package testpypi
-        if: inputs.to_testpypi == true
-        shell: bash
-        run: |
-          twine upload --repository testpypi dist/* -u __token__ -p ${{ secrets.TEST_PYPI_API_KEY }}
