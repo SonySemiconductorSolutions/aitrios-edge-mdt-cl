@@ -25,8 +25,8 @@ jobs:
       - name: update version
         shell: bash
         run: |
-          echo "__version__ = 1.1.0" >  edgemdt_cl/version.py
-          echo "edgemdt_cl/version.py content:"
+          echo "__version__ = '1.1.0'" >  edgemdt_cl/version.py
+          echo "print edgemdt_cl/version.py"
           cat edgemdt_cl/version.py
       - name: Build wheel
         shell: bash
