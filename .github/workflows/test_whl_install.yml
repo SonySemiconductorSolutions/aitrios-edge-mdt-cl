@@ -33,19 +33,34 @@ jobs:
         run: |
           pip install build
           python -m build --wheel
-      - name: Find WHL file
+      - name: Remove CustomLayer code
+        run: |
+          rm -rf edgemdt_cl
+      - name: Find whl file
         run: |
           echo "whl_file=$(find . -iname '*.whl')" >> $GITHUB_ENV
           echo $whl_file
-      - name: Install WHL file
+      - name: Install whl file
         run: |
           pip install "$whl_file"
           pip list
-      - name: Uninstall WHL file
+      - name: Uninstall whl file
         run: |
           pip uninstall -y "$whl_file"
           pip list
-      - name: Install WHL[tf] file
+      - name: Install whl[tf] file 
         run: |
           pip install "$whl_file[tf]"
+          pip list
+      - name: Uninstall whl[tf] file
+        run: |
+          pip uninstall -y "$whl_file[tf]"
+          pip list
+      - name: Install whl[torch] file & test
+        run: |
+          pip install "$whl_file[torch]"
+          pip list
+      - name: Uninstall whl[torch] file
+        run: |
+          pip uninstall -y "$whl_file[torch]"
           pip list
