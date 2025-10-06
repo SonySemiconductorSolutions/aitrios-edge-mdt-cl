@@ -1,0 +1,41 @@
+name: Test whl install
+on:
+  workflow_dispatch: # Allow manual triggers
+    inputs:
+      python_version:
+        description: 'Python version'
+        required: false
+        default: '3.10'
+      version:
+        type: string
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Python 3
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{  inputs.python_version  }}
+      - name: update version
+        shell: bash
+        run: |
+          echo "__version__ = '${{ inputs.version }}'" >  edgemdt_cl/version.py
+          echo "edgemdt_cl/version.py content:"
+          cat edgemdt_cl/version.py
+      - name: Build wheel
+        shell: bash
+        run: |
+          pip install build
+          python -m build --wheel
+      - name: Install WHL file
+        run: |
+          whl_file=$(find . -iname "*.whl")
+          echo $whl_file
+          pip install $whl_file
+          pip list
+          python -c 'import edgemdt_cl; print(edgemdt_cl.__version__)'
