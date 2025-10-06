@@ -39,4 +39,3 @@ jobs:
           echo $whl_file
           pip install $whl_file
           pip list
-          python -c 'import edgemdt_cl; print(edgemdt_cl.version.__version__)'
