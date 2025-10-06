@@ -43,7 +43,7 @@ jobs:
           pip list
       - name: Uninstall WHL file
         run: |
-          pip uninstall "$whl_file"
+          pip uninstall -y "$whl_file"
           pip list
       - name: Install WHL[tf] file
         run: |
