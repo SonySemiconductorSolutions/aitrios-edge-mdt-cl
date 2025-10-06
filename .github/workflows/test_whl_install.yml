@@ -36,6 +36,7 @@ jobs:
       - name: Install WHL file
         run: |
           whl_file=$(find . -iname "*.whl")
+          echo $whl_file >> $GITHUB_ENV
           echo $whl_file
           pip install $whl_file
           pip list
