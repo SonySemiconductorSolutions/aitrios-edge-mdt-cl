@@ -1,0 +1,65 @@
+name: Test whl install
+on:
+  workflow_dispatch: # Allow manual triggers
+    inputs:
+      python_version:
+        description: 'Python version'
+        required: false
+        default: '3.10'
+      customLayer_version:
+        type: string
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install Python 3
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python_version }}
+      - name: update version
+        shell: bash
+        run: |
+          echo "__version__ = '${{ inputs.customLayer_version }}'" >  edgemdt_cl/version.py
+          echo "print edgemdt_cl/version.py"
+          cat edgemdt_cl/version.py
+      - name: Build wheel
+        shell: bash
+        run: |
+          pip install build
+          python -m build --wheel
+      - name: Remove CustomLayer code
+        run: |
+          rm -rf edgemdt_cl
+      - name: Find whl file
+        run: |
+          echo "whl_file=$(find . -iname '*.whl')" >> $GITHUB_ENV
+          echo $whl_file
+      - name: Install whl file
+        run: |
+          pip install "$whl_file"
+          pip list
+      - name: Uninstall whl file
+        run: |
+          pip uninstall -y "$whl_file"
+          pip list
+      - name: Install whl[tf] file 
+        run: |
+          pip install "$whl_file[tf]"
+          pip list
+      - name: Uninstall whl[tf] file
+        run: |
+          pip uninstall -y "$whl_file[tf]"
+          pip list
+      - name: Install whl[torch] file
+        run: |
+          pip install "$whl_file[torch]"
+          pip list
+      - name: Uninstall whl[torch] file
+        run: |
+          pip uninstall -y "$whl_file[torch]"
+          pip list
