@@ -33,18 +33,19 @@ jobs:
         run: |
           pip install build
           python -m build --wheel
+      - name: Find WHL file
+        run: |
+          echo "whl_file=$(find . -iname '*.whl')" >> $GITHUB_ENV
+          echo $whl_file
       - name: Install WHL file
         run: |
-          whl_file=$(find . -iname "*.whl")
-          echo $whl_file >> $GITHUB_ENV
-          echo $whl_file
-          pip install $whl_file
+          pip install "$whl_file"
           pip list
       - name: Uninstall WHL file
         run: |
-          pip uninstall $whl_file
+          pip uninstall "$whl_file"
           pip list
       - name: Install WHL[tf] file
         run: |
-          pip install {$whl_file}[tf]
+          pip install "$whl_file[tf]"
           pip list
