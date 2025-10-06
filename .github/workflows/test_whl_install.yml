@@ -39,3 +39,11 @@ jobs:
           echo $whl_file
           pip install $whl_file
           pip list
+      - name: Uninstall WHL file
+        run: |
+          pip uninstall $whl_file
+          pip list
+      - name: Install WHL[tf] file
+        run: |
+          pip install {$whl_file}[tf]
+          pip list
