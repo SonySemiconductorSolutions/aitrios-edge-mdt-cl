@@ -21,13 +21,11 @@ jobs:
       - name: Install Python 3
         uses: actions/setup-python@v5
         with:
-          #python-version: ${{  inputs.python_version  }}
           python-version: "3.10"
       - name: update version
         shell: bash
         run: |
-#          echo "__version__ = '${{ inputs.version }}'" >  edgemdt_cl/version.py
-          echo "__version__ = '1.1.0" >  edgemdt_cl/version.py
+          echo "__version__ = "1.1.0" >  edgemdt_cl/version.py
           echo "edgemdt_cl/version.py content:"
           cat edgemdt_cl/version.py
       - name: Build wheel
