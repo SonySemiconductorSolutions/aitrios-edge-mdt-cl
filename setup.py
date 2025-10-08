@@ -30,4 +30,5 @@ extras_require = {
     'tf': pinned_pip_requirements['tf'],
 }
 
-setup(extras_require=extras_require)
+setup(extras_require=extras_require, 
+      python_requires='>=3.9')
