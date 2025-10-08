@@ -20,7 +20,7 @@
 required_libraries = {
     'tf': ['tensorflow>=2.14'],
     'torch': ['torch>=2.3', 'torchvision>=0.18'],
-    'torch_ort': ['onnx', 'onnxruntime', 'onnxruntime_extensions>=0.8.0'],
+    'torch_ort': ['onnx>=1.14', 'onnxruntime>=1.15', 'onnxruntime_extensions>=0.8.0'],
 }
 
 # pinned requirements of latest tested versions for extra_requires
