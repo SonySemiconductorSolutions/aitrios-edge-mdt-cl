@@ -48,12 +48,12 @@ jobs:
           pip uninstall -y "$whl_file"
           pip list
       - name: Install whl[tf] file
-        if: matrix.python_version != "3.12"
+        if: ${{ matrix.python_version != '3.12' }}
         run: |
           pip install "$whl_file[tf]"
           pip list
       - name: Uninstall whl[tf] file
-        if: matrix.python_version != "3.12"
+        if: ${{ matrix.python_version != '3.12' }}
         run: |
           pip uninstall -y "$whl_file[tf]"
           pip list
