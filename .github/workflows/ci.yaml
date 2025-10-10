@@ -129,6 +129,8 @@ jobs:
             ort_ext_ver: "0.10"
             onnx_ver: "1.14"
           - py_ver: "3.9"
+            torch_ver: "2.3"
+            torchvision_ver: "0.18"
             ort_ver: "1.19"
             ort_ext_ver: "0.12"
             onnx_ver: "1.16"
