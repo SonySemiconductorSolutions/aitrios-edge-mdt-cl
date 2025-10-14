@@ -39,6 +39,7 @@ if sys.version_info.major == 3 and sys.version_info.minor == 9:
         'tf': ['tensorflow==2.15.*'],
         'torch': ['torch==2.6.*', 'torchvision==0.21.*'],
         'torch_ort': ['onnx==1.17.*', 'onnxruntime==1.19.*', 'onnxruntime_extensions==0.13.*']
+    }
 else:
     pinned_pip_requirements = {
         'tf': ['tensorflow==2.15.*'],
