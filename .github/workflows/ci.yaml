@@ -153,7 +153,7 @@ jobs:
         run: |
           pytest edgemdt_cl/pytorch
 
-  run-torch-tests-py3.9:
+  run-torch-tests-py39:
     needs: [precommit]
     runs-on: ubuntu-latest
     strategy:
