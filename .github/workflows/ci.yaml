@@ -82,7 +82,7 @@ jobs:
         # * latest/earliest torch+torchvision X latest/earliest ort X latest/earliest ort-ext X latest/earliest onnx
         # * each remaining version is covered by at least one test
         # !!!NOTE!!! if newer versions are added, update edgemdt_cl.__init__ pinned_requirements
-        py_ver: ["3.10", "3.11", "3.12" ]
+        py_ver: ["3.9", "3.10", "3.11", "3.12" ]
         torch_ver: ["2.3", "2.4", "2.5", "2.6"]
         ort_ver: ["1.15", "1.21"]
         ort_ext_ver: ["0.8", "0.13"]
@@ -96,6 +96,8 @@ jobs:
             ort_ext_ver: "0.8"
           - py_ver: "3.11"    # incompatible versions
             ort_ext_ver: "0.8"
+          - py_ver: "3.9"    # incompatible versions
+            ort_ver: "1.21"
           # torch 2.5 requires numpy>2 while the older onnx versions require numpy<2
           - torch_ver: "2.5"
             ort_ver: "1.15"
@@ -126,66 +128,12 @@ jobs:
             ort_ver: "1.17"
             ort_ext_ver: "0.10"
             onnx_ver: "1.14"
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install Python 3
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{matrix.py_ver}}
-      - name: Install dependencies # Extra requirement numpy<2 for older torch and onnx versions
-        run: |
-          if [ ${{matrix.onnx_ver}} == 1.14 ] || [ ${{matrix.ort_ver}} == 1.15 ] || [ ${{matrix.ort_ext_ver}} == 0.8 ] || [ ${{matrix.ort_ext_ver}} == 0.9 ];then
-             extra_req='numpy<2'
-          fi
-          python -m pip install --upgrade pip
-          pip install numpy $extra_req
-          pip install torch==${{matrix.torch_ver}}.* \
-                      torchvision==${{matrix.torchvision_ver}}.* --index-url https://download.pytorch.org/whl/cpu 
-          pip install onnxruntime==${{matrix.ort_ver}}.* \
-                      onnxruntime_extensions==${{matrix.ort_ext_ver}}.* \
-                      onnx==${{matrix.onnx_ver}}.* \
-                      -r ./requirements_test.txt
-          pip check
-          pip list
-      - name: Run pytest
-        run: |
-          pytest edgemdt_cl/pytorch
-
-  run-torch-tests-py39:
-    needs: [precommit]
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        # Test selected versions combinations as following:
-        # * latest/earliest torch+torchvision X latest/earliest ort X latest/earliest ort-ext X latest/earliest onnx
-        # * each remaining version is covered by at least one test
-        # !!!NOTE!!! if newer versions are added, update edgemdt_cl.__init__ pinned_requirements
-        py_ver: ["3.9"]
-        torch_ver: ["2.3", "2.4", "2.5", "2.6"]
-        ort_ver: ["1.15", "1.19"]    # incompatible ort_ver>=1.20 if py3.9
-        ort_ext_ver: ["0.8", "0.13"]
-        onnx_ver: ["1.14", "1.17"]
-        exclude:
-          # torch 2.5 requires numpy>2 while the older onnx versions require numpy<2
-          - torch_ver: "2.5"
-            ort_ver: "1.15"
-          - torch_ver: "2.5"
-            ort_ext_ver: "0.8"
-          - torch_ver: "2.5"
-            onnx_ver: "1.14"
-        include:
-          # torchvision ver is coupled to a specific torch ver
-          - torch_ver: "2.6"
+          - py_ver: "3.9"
+            torch_ver: "2.6"
             torchvision_ver: "0.21"
-          - torch_ver: "2.5"
-            torchvision_ver: "0.20"
-          - torch_ver: "2.4"
-            torchvision_ver: "0.19"
-          - torch_ver: "2.3"
-            torchvision_ver: "0.18"
+            ort_ver: "1.19"
+            ort_ext_ver: "0.13"
+            onnx_ver: "1.17"
 
     steps:
       - name: Checkout
