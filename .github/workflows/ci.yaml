@@ -128,6 +128,12 @@ jobs:
             ort_ver: "1.17"
             ort_ext_ver: "0.10"
             onnx_ver: "1.14"
+          - py_ver: "3.9"
+            torch_ver: "2.6"
+            torchvision_ver: "0.21"
+            ort_ver: "1.19"
+            ort_ext_ver: "0.13"
+            onnx_ver: "1.17"
 
     steps:
       - name: Checkout
