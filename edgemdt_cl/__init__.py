@@ -27,5 +27,6 @@ required_libraries = {
 pinned_pip_requirements = {
     'tf': ['tensorflow==2.15.*'],
     'torch': ['torch==2.6.*', 'torchvision==0.21.*'],
-    'torch_ort': ['onnx==1.17.*', 'onnxruntime<1.22', 'onnxruntime_extensions==0.13.*'] # onnxruntime==1.19.* if python3.9 else onnxruntime==1.21.*
+    # onnxruntime==1.19.* if python3.9 else onnxruntime==1.21.*
+    'torch_ort': ['onnx==1.17.*', 'onnxruntime<1.22', 'onnxruntime_extensions==0.13.*']
 }
