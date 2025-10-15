@@ -2,10 +2,6 @@ name: Test whl install
 on:
   workflow_dispatch: # Allow manual triggers
     inputs:
-      python_version:
-        description: 'Python version'
-        required: false
-        default: '3.10'
       customLayer_version:
         type: string
         required: true
@@ -13,6 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python_version: ["3.9", "3.10", "3.11", "3.12"]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -20,7 +20,7 @@ jobs:
       - name: Install Python 3
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ inputs.python_version }}
+          python-version: ${{ matrix.python_version }}
       - name: update version
         shell: bash
         run: |
@@ -47,11 +47,13 @@ jobs:
         run: |
           pip uninstall -y "$whl_file"
           pip list
-      - name: Install whl[tf] file 
+      - name: Install whl[tf] file
+        if: ${{ matrix.python_version != '3.12' }}
         run: |
           pip install "$whl_file[tf]"
           pip list
       - name: Uninstall whl[tf] file
+        if: ${{ matrix.python_version != '3.12' }}
         run: |
           pip uninstall -y "$whl_file[tf]"
           pip list
