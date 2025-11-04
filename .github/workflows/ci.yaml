@@ -51,7 +51,7 @@ jobs:
       fail-fast: false
       matrix:
         # NOTE if newer versions are added, update edgemdt_cl.__init__ pinned_requirements!!!
-        py_ver: ["3.9", "3.10", "3.11"]
+        py_ver: ["3.10", "3.11"]
         tf_ver: ["2.14", "2.15"]
 
     steps:
@@ -82,7 +82,7 @@ jobs:
         # * latest/earliest torch+torchvision X latest/earliest ort X latest/earliest ort-ext X latest/earliest onnx
         # * each remaining version is covered by at least one test
         # !!!NOTE!!! if newer versions are added, update edgemdt_cl.__init__ pinned_requirements
-        py_ver: ["3.9", "3.10", "3.11", "3.12" ]
+        py_ver: ["3.10", "3.11", "3.12" ]
         torch_ver: ["2.3", "2.4", "2.5", "2.6"]
         ort_ver: ["1.15", "1.21"]
         ort_ext_ver: ["0.8", "0.13"]
@@ -96,8 +96,6 @@ jobs:
             ort_ext_ver: "0.8"
           - py_ver: "3.11"    # incompatible versions
             ort_ext_ver: "0.8"
-          - py_ver: "3.9"    # incompatible versions
-            ort_ver: "1.21"
           # torch 2.5 requires numpy>2 while the older onnx versions require numpy<2
           - torch_ver: "2.5"
             ort_ver: "1.15"
@@ -128,12 +126,6 @@ jobs:
             ort_ver: "1.17"
             ort_ext_ver: "0.10"
             onnx_ver: "1.14"
-          - py_ver: "3.9"
-            torch_ver: "2.6"
-            torchvision_ver: "0.21"
-            ort_ver: "1.19"
-            ort_ext_ver: "0.13"
-            onnx_ver: "1.17"
 
     steps:
       - name: Checkout
