@@ -8,9 +8,6 @@ repos:
     rev: 'v1.3.0'
     hooks:
     -   id: mypy
-        name: mypy py3.9
-        args: ['--python-version=3.9']
-    -   id: mypy
         name: mypy py3.10
         args: ['--python-version=3.10']
     -   id: mypy
