@@ -128,7 +128,6 @@ jobs:
           python-version: ${{matrix.py_ver}}
       - name: Install dependencies
         run: |
-          fi
           python -m pip install --upgrade pip
           pip install torch==${{matrix.torch_ver}}.* \
                       torchvision==${{matrix.torchvision_ver}}.* --index-url https://download.pytorch.org/whl/cpu 
