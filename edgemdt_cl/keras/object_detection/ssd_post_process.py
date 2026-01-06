@@ -79,7 +79,7 @@ class SSDPostProcess(CustomLayer):
 
     Example:
         ```
-        from edgemdt_cl.keras import SSDPostProcessing, ScoreConverter
+        from edgemdt_cl.keras import SSDPostProcess, ScoreConverter
 
         post_process = SSDPostProcess(anchors=anchors,
                                       scale_factors=(10, 10, 5, 5),
