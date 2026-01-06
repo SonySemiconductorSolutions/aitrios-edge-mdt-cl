@@ -315,7 +315,7 @@ decoded_boxes = box_decode(rel_codes)
 </span><span id="SSDPostProcess-80"><a href="#SSDPostProcess-80"><span class="linenos"> 80</span></a>
 </span><span id="SSDPostProcess-81"><a href="#SSDPostProcess-81"><span class="linenos"> 81</span></a><span class="sd">    Example:</span>
 </span><span id="SSDPostProcess-82"><a href="#SSDPostProcess-82"><span class="linenos"> 82</span></a><span class="sd">        ```</span>
-</span><span id="SSDPostProcess-83"><a href="#SSDPostProcess-83"><span class="linenos"> 83</span></a><span class="sd">        from edgemdt_cl.keras import SSDPostProcessing, ScoreConverter</span>
+</span><span id="SSDPostProcess-83"><a href="#SSDPostProcess-83"><span class="linenos"> 83</span></a><span class="sd">        from edgemdt_cl.keras import SSDPostProcess, ScoreConverter</span>
 </span><span id="SSDPostProcess-84"><a href="#SSDPostProcess-84"><span class="linenos"> 84</span></a>
 </span><span id="SSDPostProcess-85"><a href="#SSDPostProcess-85"><span class="linenos"> 85</span></a><span class="sd">        post_process = SSDPostProcess(anchors=anchors,</span>
 </span><span id="SSDPostProcess-86"><a href="#SSDPostProcess-86"><span class="linenos"> 86</span></a><span class="sd">                                      scale_factors=(10, 10, 5, 5),</span>
@@ -458,7 +458,7 @@ is applied).</li>
 <h6 id="example">Example:</h6>
 
 <blockquote>
-<pre><code>from <a href="">edgemdt_cl.keras</a> import SSDPostProcessing, ScoreConverter
+<pre><code>from <a href="">edgemdt_cl.keras</a> import SSDPostProcess, ScoreConverter
 
 post_process = SSDPostProcess(anchors=anchors,
                               scale_factors=(10, 10, 5, 5),
