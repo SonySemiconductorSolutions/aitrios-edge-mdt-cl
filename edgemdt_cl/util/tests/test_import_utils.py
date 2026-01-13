@@ -106,7 +106,7 @@ class TestImportLibsCheck:
             (['onnx>=1.14,<1.18'], {'onnx': '1.3.0'}, False,
                 "\nRequired 'onnx' version <1.18,>=1.14, installed version 1.3.0."),
             (['onnx>=1.14,<1.18'], {'onnx': '1.3.0.dev1'}, False,
-             "\nRequired 'onnx' version <1.18,>=1.14, installed version 1.3.0.dev1."),
+                "\nRequired 'onnx' version <1.18,>=1.14, installed version 1.3.0.dev1."),
         ])  # yapf: enable
     def test_validate_installed_libraries(self, requirements, mock_modules, boolean_expected, error_message_expected):
         mock_import_module = self._create_mock_import_module(mock_modules)
