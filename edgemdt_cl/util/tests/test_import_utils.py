@@ -60,29 +60,30 @@ class TestImportLibsCheck:
         ### tensorflow case
         (['tensorflow'], {'tensorflow': '2.15.0'}, True, None),
         (['tensorflow>=2.15'], {'tensorflow': '2.15.0'}, True, None),
+        (['tensorflow>=2.15'], {'tensorflow': '2.15.0dev0'}, True, None),
         (['tensorflow>=2.15'], {}, False, "\nRequired library 'tensorflow' is not installed."),
         (['tensorflow>=2.15'], {'tensorflow': '2.10.0'}, False, "\nRequired 'tensorflow' version >=2.15, installed version 2.10.0."),
-        (['tensorflow>=2.15'], {'tensorflow': '2.10.0a0+dev0'}, False, "\nRequired 'tensorflow' version >=2.15, installed version 2.10.0a0+dev0."),
+        (['tensorflow>=2.15'], {'tensorflow': '2.10.0dev0'}, False, "\nRequired 'tensorflow' version >=2.15, installed version 2.10.0dev0."),
         (['tensorflow>=2.14,<2.16'], {'tensorflow': '2.14.0'}, True, None),
-        (['tensorflow>=2.14,<2.16'], {'tensorflow': '2.14.0a0+dev0'}, True, None),
+        (['tensorflow>=2.14,<2.16'], {'tensorflow': '2.14.0dev0'}, True, None),
         (['tensorflow>=2.14,<2.16'], {'tensorflow': '1.10.0'}, False, "\nRequired 'tensorflow' version <2.16,>=2.14, installed version 1.10.0."),
-        (['tensorflow>=2.14,<2.16'], {'tensorflow': '1.10.0+dev1'}, False, "\nRequired 'tensorflow' version <2.16,>=2.14, installed version 1.10.0+dev1."),
+        (['tensorflow>=2.14,<2.16'], {'tensorflow': '1.10.0dev1'}, False, "\nRequired 'tensorflow' version <2.16,>=2.14, installed version 1.10.0dev1."),
 
         ### onnx case
         (['onnx'], {'onnx': '1.17.0'}, True, None),
         (['onnx>=1.14'], {'onnx': '1.17.0'}, True, None),
         (['onnx>=1.14', 'onnxruntime>=1.15'], {'onnx': '1.17.0', 'onnxruntime': '1.18.0'}, True, None),
-        (['onnx>=1.14', 'onnxruntime>=1.15'], {'onnx': '1.17.0a0+dev0', 'onnxruntime': '1.18.0dev2+a0'}, True, None),
+        (['onnx>=1.14', 'onnxruntime>=1.15'], {'onnx': '1.17.0.dev0', 'onnxruntime': '1.18.0dev2+a0'}, True, None),
         (['onnx>=1.14'], {}, False, "\nRequired library 'onnx' is not installed."),
         (['onnx>=1.14'], {'onnx': '1.0.0'}, False, "\nRequired 'onnx' version >=1.14, installed version 1.0.0."),
-        (['onnx>=1.14'], {'onnx': '1.0.0a0+dev0'}, False, "\nRequired 'onnx' version >=1.14, installed version 1.0.0a0+dev0."),
+        (['onnx>=1.14'], {'onnx': '1.0.0.dev0'}, False, "\nRequired 'onnx' version >=1.14, installed version 1.0.0.dev0."),
         (['onnx>=1.14', 'onnxruntime>=1.15', 'onnxruntime_extensions>=0.8.0'], {'onnx': '1.17.0', 'onnxruntime_extensions': '0.9.0'}, False, "\nRequired library 'onnxruntime' is not installed."),
         (['onnx>=1.14', 'onnxruntime>=1.15', 'onnxruntime_extensions>=0.8.0'], {'onnx': '1.0.0'}, False, \
                 "\nRequired 'onnx' version >=1.14, installed version 1.0.0.\nRequired library 'onnxruntime' is not installed.\nRequired library 'onnxruntime_extensions' is not installed."),
         (['onnx>=1.14,<1.18'], {'onnx': '1.17.0'}, True, None),
-        (['onnx>=1.14,<1.18'], {'onnx': '1.17.0a0+dev0'}, True, None),
+        (['onnx>=1.14,<1.18'], {'onnx': '1.17.0.dev0'}, True, None),
         (['onnx>=1.14,<1.18'], {'onnx': '1.3.0'}, False, "\nRequired 'onnx' version <1.18,>=1.14, installed version 1.3.0."),
-        (['onnx>=1.14,<1.18'], {'onnx': '1.3.0+dev1'}, False, "\nRequired 'onnx' version <1.18,>=1.14, installed version 1.3.0+dev1."),
+        (['onnx>=1.14,<1.18'], {'onnx': '1.3.0.dev1'}, False, "\nRequired 'onnx' version <1.18,>=1.14, installed version 1.3.0.dev1."),
     ])
     def test_validate_installed_libraries(self, requirements, mock_modules, boolean_expected, error_message_expected):
         mock_import_module = self._create_mock_import_module(mock_modules)
