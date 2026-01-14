@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-# Copyright 2024 Sony Semiconductor Solutions, Inc. All rights reserved.
+# Copyright 2026 Sony Semiconductor Solutions, Inc. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -53,7 +53,10 @@ def validate_installed_libraries(requirements: List[str]):
             except AttributeError:
                 warnings.warn(f"Failed to retrieve '{req.name}' version. Continuing without compatability check.")
                 continue
-            if parse(installed_ver) not in req.specifier:
+
+            parsed_ver = parse(installed_ver)
+            parsed_base_ver = parse(parsed_ver.base_version)
+            if not (req.specifier.contains(parsed_ver, prereleases=True) or req.specifier.contains(parsed_base_ver)):
                 error += f"\nRequired '{req.name}' version {req.specifier}, installed version {installed_ver}."
 
     if error:

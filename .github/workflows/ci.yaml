@@ -44,6 +44,32 @@ jobs:
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  run_util_test:
+    needs: [precommit]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        py_ver: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Python 3
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{matrix.py_ver}}
+      - name: Install dependencies
+        run: |
+          pip install packaging
+          pip install -r requirements_test.txt
+          pip check
+          pip list
+      - name: Run pytest
+        run: |
+          pytest edgemdt_cl/util
+
   run-tf-tests:
     needs: [precommit]
     runs-on: ubuntu-latest
