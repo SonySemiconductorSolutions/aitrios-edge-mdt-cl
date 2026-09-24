@@ -107,9 +107,9 @@ jobs:
         # Test selected versions combinations as following:
         # * latest/earliest torch+torchvision X latest/earliest ort X latest/earliest ort-ext X latest/earliest onnx
         # * each remaining version is covered by at least one test
-        # !!!NOTE!!! if newer versions are added, update edgemdt_cl.__init__ pinned_requirements
+        # Update edgemdt_cl.__init__ pinned_requirements only when changing the published [torch] extra.
         py_ver: ["3.10", "3.11", "3.12" ]
-        torch_ver: ["2.3", "2.4", "2.5", "2.6"]
+        torch_ver: ["2.3", "2.4", "2.5", "2.6", "2.7", "2.8", "2.9", "2.10", "2.11", "2.12", "2.13", "2.14"]
         ort_ver: ["1.15", "1.21"]
         ort_ext_ver: ["0.8", "0.13"]
         onnx_ver: ["1.14", "1.17"]
@@ -133,6 +133,22 @@ jobs:
           # torchvision ver is coupled to a specific torch ver
           - torch_ver: "2.6"
             torchvision_ver: "0.21"
+          - torch_ver: "2.7"
+            torchvision_ver: "0.22"
+          - torch_ver: "2.8"
+            torchvision_ver: "0.23"
+          - torch_ver: "2.9"
+            torchvision_ver: "0.24"
+          - torch_ver: "2.10"
+            torchvision_ver: "0.25"
+          - torch_ver: "2.11"
+            torchvision_ver: "0.26"
+          - torch_ver: "2.12"
+            torchvision_ver: "0.27"
+          - torch_ver: "2.13"
+            torchvision_ver: "0.28"
+          - torch_ver: "2.14"
+            torchvision_ver: "0.29"
           - torch_ver: "2.5"
             torchvision_ver: "0.20"
           - torch_ver: "2.4"
