@@ -181,6 +181,14 @@ jobs:
           if [ ${{matrix.onnx_ver}} == 1.14 ] || [ ${{matrix.ort_ver}} == 1.15 ] || [ ${{matrix.ort_ext_ver}} == 0.8 ] || [ ${{matrix.ort_ext_ver}} == 0.9 ];then
              extra_req='numpy<2'
           fi
+          onnxscript_req=()
+          IFS=. read -r torch_major torch_minor <<< "${{matrix.torch_ver}}"
+          if [[ "${{matrix.onnx_ver}}" == "1.17" ]] && (( torch_major > 2 || (torch_major == 2 && torch_minor >= 9) )); then
+            onnxscript_req=("onnxscript==0.7.2")
+            if [[ -n "${extra_req:-}" ]]; then
+              onnxscript_req+=("$extra_req")
+            fi
+          fi
           python -m pip install --upgrade pip
           pip install numpy $extra_req
           pip install torch==${{matrix.torch_ver}}.* \
@@ -188,7 +196,7 @@ jobs:
           pip install onnxruntime==${{matrix.ort_ver}}.* \
                       onnxruntime_extensions==${{matrix.ort_ext_ver}}.* \
                       onnx==${{matrix.onnx_ver}}.* \
-                      -r ./requirements_test.txt
+                      -r ./requirements_test.txt "${onnxscript_req[@]}"
           pip check
           pip list
       - name: Run pytest
